@@ -17,7 +17,7 @@
     <script>
       var apiScript = window.location.hostname === 'localhost' ?
         'http://localhost:3001/alegrify-consult-api.js' :
-        'https://' + window.location.hostname + '/alegrify-consult-api.js';
+        'https://' + window.location.hostname.replace('consult.', '') + '/alegrify-consult-api.js';
 
       var s = document.createElement('script');
       s.setAttribute('src', apiScript);
