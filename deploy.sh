@@ -6,7 +6,6 @@ npm i
 npm run build
 version=`date '+%Y_%m_%d__%H_%M_%S'`;
 cp -R ./build ./release-$version
-cp -R ./build ./html
+cp -R ./build/* /var/www/html && chown -R www-data:www-data /var/www/html
 rm -rf ./build
-cp -R html /var/www && chown -R www-data:www-data /var/www/html
 nginx -s reload
