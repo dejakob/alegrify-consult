@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch, withRouter } from 'react-router-dom';
+import Welcome from './components/Welcome';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Coming soon... But how soon is soon? 🚧
-          </p>
-        </header>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <Switch>
+                <Route path="/" component={Welcome}/>
+            </Switch>
+        );
+    }
 }
 
-export default App;
+export default withRouter(App);
