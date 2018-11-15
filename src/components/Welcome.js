@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Grid, H1, Main, Section, Label, Input } from 'react-alegrify-ui';
 import logo from '../logo.svg';
+import Api from '../helpers/api';
 
 class Welcome extends Component {
     constructor() {
@@ -12,11 +13,7 @@ class Welcome extends Component {
     handleSubmit(eventData) {
         eventData.preventDefault();
 
-        if (window.Alegrify && window.Alegrify.ConsultApi.Public) {
-            const { Public } = window.Alegrify.ConsultApi;
-
-            Public.login(this.email, this.password);
-        }
+        Api.login('consult@alegrify.com', 'consult');
     }
 
     render() {
