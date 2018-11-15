@@ -5,10 +5,11 @@
   "dependencies": {
     "babel-eslint": "9.0.0",
     "react": "^16.6.3",
+    "react-alegrify-ui": "github:dejakob/react-alegrify-ui",
     "react-dom": "^16.6.3",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
-    "react-alegrify-ui": "github:dejakob/react-alegrify-ui"
+    "styled-components": "^4.1.1"
   },
   "scripts": {
     "start": "PORT=3002 react-scripts start",

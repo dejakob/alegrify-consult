@@ -3,6 +3,8 @@ import { Button, Grid, H1, Main, Section, Label, Input } from 'react-alegrify-ui
 import logo from '../logo.svg';
 import Api from '../helpers/api';
 
+// Todo: clientside validation
+
 class Welcome extends Component {
     constructor() {
         super();
@@ -10,10 +12,42 @@ class Welcome extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(eventData) {
+    componentWillMount() {
+        this.setState({
+            isLoading: false,
+            email: '',
+            password: '',
+            validationErrors: {}
+        });
+    }
+
+    async handleSubmit(eventData) {
         eventData.preventDefault();
 
-        Api.login('consult@alegrify.com', 'consult');
+        try {
+            this.setState({ isLoading: true, validationErrors: {} });
+            await Api.login(this.state.email, this.state.password);
+            this.setState({ isLoading: false });
+            this.props.history.push('/dashboard');
+        }
+        catch (ex) {
+            if (ex && ex.validation_errors) {
+                this.setState({
+                    validationErrors: ex.validation_errors,
+                    isLoading: false
+                });
+            }
+            else {
+                this.setState({ isLoading: false });
+            }
+        }
+    }
+
+    get isValid() {
+        return this.state.email &&
+            this.state.email.length &&
+            this.state.password &&
+            this.state.password.length;
     }
 
     render() {
@@ -65,8 +99,15 @@ class Welcome extends Component {
                                     type="email"
                                     full
                                     required
-                                    onValueChange={val => this.email = val}
+                                    onValueChange={val => this.setState({ email: val })}
                                 />
+                                <Label
+                                    error
+                                    htmlFor="login_user_name"
+                                    className={this.state.validationErrors.email ? 'alegrify-space--large' : ''}
+                                >
+                                    {this.state.validationErrors.email}
+                                </Label>
     
                                 <Label
                                     htmlFor="login_password"
@@ -81,16 +122,31 @@ class Welcome extends Component {
                                     full
                                     type="password"
                                     required
-                                    onValueChange={val => this.password = val}
+                                    onValueChange={val => this.setState({ password: val })}
                                 />
+                                <Label
+                                    error
+                                    htmlFor="login_password"
+                                    className={this.state.validationErrors.password ? 'alegrify-space--large' : ''}
+                                >
+                                    {this.state.validationErrors.password}
+                                </Label>
     
                                 <Button
                                     type="submit"
                                     primary
                                     full
+                                    loading={this.state.isLoading}
+                                    disabled={!this.isValid || this.state.isLoading}
                                 >
                                     Log in
                                 </Button>
+                                <Label
+                                    error
+                                    htmlFor="login_user_name"
+                                >
+                                    {this.state.validationErrors.is_consult}
+                                </Label>
                             </form>
                         </Section>
     
