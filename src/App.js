@@ -8,8 +8,7 @@ class App extends Component {
     render() {
         return (
             <Switch>
-                <Route path="/dashboard/:user" component={Auth(Dashboard)} />
-                <Route path="/dashboard" component={Auth(Dashboard)} />
+                <Route path="/dashboard/:user?" component={Auth(Dashboard)} />
                 <Route path="/" component={Welcome} />
             </Switch>
         );
