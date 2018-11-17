@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const SideNav = styled.nav`
     position: absolute;
@@ -26,7 +27,7 @@ const SideNavHeader = styled.header`
     display: flex;
     align-items: center;
     padding: 16px;
-    background: rgba(255,255,255,0.1);
+    background: #3e3838;
 `;
 const SideNavTitle = styled.h1`
     font-size: 24px;
@@ -39,19 +40,21 @@ const SideNavSubtitle = styled.p`
     padding: 0;
 `;
 
-const SideNavFooter = styled.button`
+const SideNavFooter = styled(Link)`
     appearance: none;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background: none;
     width: 100%;
+    background: #1f1c1c;
     color: #ffffff;
 
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: 1;
     
     padding: 16px;
     border-top: 1px solid rgba(255,255,255,0.1);
@@ -62,8 +65,12 @@ const SideNavFooter = styled.button`
 
     font-size: 16px;
 
-    &:hover {
-        background: rgba(255,255,255,0.1);
+    box-sizing: border-box;
+    text-decoration: none;
+
+    &:hover,
+    &:active {
+        background: #3e3838;
     }
     &:focus {
         outline-color: #ffffff;
@@ -74,17 +81,38 @@ const SideNavList = styled.ul`
     list-style: none;
     margin: 0;
     padding: 0;
+    height: calc(100vh - 140px);
+    overflow: auto;
 `;
 const SideNavListItem = styled.li`
-    padding: 16px;
-
     &+& {
         border-top: 1px solid rgba(255,255,255,0.1);
     }
 `;
+const SideNavListItemLink = styled(Link)`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 16px;
+
+    &:focus {
+        outline-color: #ffffff;
+    }
+`;
+const SideNavListItemContent = styled.div`
+
+`;
 const SideNavListItemName = styled.span`
+    display: block;
     font-size: 16px;
     font-weight: 600;
+`;
+const SideNavListItemSince = styled.span`
+    display: block;
+    font-size: 12px;
+    font-style: italic;
 `;
 
 export default SideNav;
@@ -99,5 +127,8 @@ export {
 
     SideNavList,
     SideNavListItem,
-    SideNavListItemName
+    SideNavListItemLink,
+    SideNavListItemContent,
+    SideNavListItemName,
+    SideNavListItemSince
 };
