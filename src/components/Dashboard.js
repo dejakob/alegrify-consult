@@ -7,9 +7,9 @@ class Dashboard extends Component {
         return (
             <React.Fragment>
                 <SideNav>
-                    
+
                     <H1>Alegrify</H1>
-                    <H2>Council</H2>
+                    <H2>Consult</H2>
                 </SideNav>
             </React.Fragment>
         );
