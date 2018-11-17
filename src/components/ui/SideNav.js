@@ -118,7 +118,9 @@ const SideNavListItemSince = styled.span`
 
 const SideNavAwareMain = (props) => {
     const Outer = styled.div`
-        margin-left: 300px;
+        @media (min-width: 1200px) {
+            margin-left: 300px;
+        }
 
         .alegrify-main {
             margin-top: 0;

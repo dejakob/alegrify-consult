@@ -9,7 +9,11 @@ import SideNav, {
 import {
     ProfileHeader,
     ProfileHeaderTitle,
-    ProfileHeaderContent
+    ProfileHeaderContent,
+    ProfileNav,
+    ProfileNavList,
+    ProfileNavListItem,
+    ProfileNavListItemLink
 } from './ui/Profile';
 import SideNavListItem from './dashboard/SideNavListItem';
 import SideNavHeader from './dashboard/SideNavHeader';
@@ -92,6 +96,25 @@ class Dashboard extends Component {
                             />
                         </ProfileHeaderContent>
                     </ProfileHeader>
+
+                    <ProfileNav>
+                        <ProfileNavList>
+                            <ProfileNavListItem>
+                                <ProfileNavListItemLink
+                                    to="/dashboard/$id"
+                                >
+                                    Overview
+                                </ProfileNavListItemLink>
+                            </ProfileNavListItem>
+                            <ProfileNavListItem>
+                                <ProfileNavListItemLink
+                                    to="/dashboard/$id/thoughts"
+                                >
+                                    Thoughts
+                                </ProfileNavListItemLink>
+                            </ProfileNavListItem>
+                        </ProfileNavList>
+                    </ProfileNav>
                 </SideNavAwareMain>
             </React.Fragment>
         );
