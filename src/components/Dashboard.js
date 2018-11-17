@@ -1,4 +1,11 @@
 import React, { Component } from 'react';
+import {
+    Aside,
+    Article,
+    Grid,
+    Section,
+    H2
+} from 'react-alegrify-ui';
 import Avatar from './ui/Avatar';
 import SideNav, {
     SideNavContent,
@@ -97,7 +104,9 @@ class Dashboard extends Component {
                         </ProfileHeaderContent>
                     </ProfileHeader>
 
-                    <ProfileNav>
+                    <ProfileNav
+                        className="alegrify-space--extra-large"
+                    >
                         <ProfileNavList>
                             <ProfileNavListItem>
                                 <ProfileNavListItemLink
@@ -115,6 +124,25 @@ class Dashboard extends Component {
                             </ProfileNavListItem>
                         </ProfileNavList>
                     </ProfileNav>
+
+                    <Grid
+                        reverse
+                    >
+                        <Aside
+                            className="alegrify-grid__cell alegrify-grid__cell--4"
+                        >
+                            <Section>
+                                ... aside
+                            </Section>
+                        </Aside>
+                        <Article
+                            className="alegrify-grid__cell alegrify-grid__cell--8"
+                        >
+                            <Section>
+                                <H2>About</H2>
+                            </Section>
+                        </Article>
+                    </Grid>
                 </SideNavAwareMain>
             </React.Fragment>
         );
