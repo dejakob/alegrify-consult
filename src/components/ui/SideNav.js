@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Main } from 'react-alegrify-ui';
 import { Link } from 'react-router-dom';
 
 const SideNav = styled.nav`
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
@@ -115,6 +116,24 @@ const SideNavListItemSince = styled.span`
     font-style: italic;
 `;
 
+const SideNavAwareMain = (props) => {
+    const Outer = styled.div`
+        margin-left: 300px;
+
+        .alegrify-main {
+            margin-top: 0;
+        }
+    `;
+
+    return (
+        <Outer>
+            <Main>
+                {props.children}
+            </Main>
+        </Outer>
+    )
+}
+
 export default SideNav;
 export {
     SideNavContent,
@@ -130,5 +149,7 @@ export {
     SideNavListItemLink,
     SideNavListItemContent,
     SideNavListItemName,
-    SideNavListItemSince
+    SideNavListItemSince,
+
+    SideNavAwareMain
 };

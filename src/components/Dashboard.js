@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
+import Avatar from './ui/Avatar';
 import SideNav, {
     SideNavContent,
     SideNavFooter,
-
-    SideNavList
+    SideNavList,
+    SideNavAwareMain
 } from './ui/SideNav';
+import {
+    ProfileHeader,
+    ProfileHeaderTitle,
+    ProfileHeaderContent
+} from './ui/Profile';
 import SideNavListItem from './dashboard/SideNavListItem';
 import SideNavHeader from './dashboard/SideNavHeader';
 
@@ -71,6 +77,22 @@ class Dashboard extends Component {
                         </SideNavFooter>
                     </SideNavContent>
                 </SideNav>
+
+                <SideNavAwareMain>
+                    <ProfileHeader>
+                        <ProfileHeaderContent>
+                            <ProfileHeaderTitle>
+                                Firstname Lastname
+                            </ProfileHeaderTitle>
+                            <Avatar
+                                src="https://source.unsplash.com/150x150/?person&time=5645656"
+                                alt="avatar"
+                                height="150"
+                                width="150"
+                            />
+                        </ProfileHeaderContent>
+                    </ProfileHeader>
+                </SideNavAwareMain>
             </React.Fragment>
         );
     }
