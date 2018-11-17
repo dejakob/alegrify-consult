@@ -20,5 +20,14 @@
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="root"></div>
+    <script>
+      var fonts = [
+        'https://fonts.googleapis.com/icon?family=Material+Icons'
+      ];
+
+      document.head.innerHTML = document.head.innerHTML + fonts.map(function(font) {
+        return '<link href="' + font + '" rel="stylesheet" />';
+      });
+    </script>
   </body>
 </html>

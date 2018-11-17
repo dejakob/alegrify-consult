@@ -15,9 +15,9 @@ class App extends Component {
     }
 }
 
-function Auth(component) {
+function Auth(Component) {
     if (ApiHelper.isLoggedIn) {
-        return props => <component {...props} />;
+        return props => <Component {...props} />;
     }
     
     return props => <Redirect to="/" />;
