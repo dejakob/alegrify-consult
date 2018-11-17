@@ -5,6 +5,7 @@
   "dependencies": {
     "alegrify-ui": "dejakob/alegrify-ui",
     "babel-eslint": "9.0.0",
+    "moment": "^2.22.2",
     "react": "^16.6.3",
     "react-alegrify-ui": "dejakob/react-alegrify-ui",
     "react-dom": "^16.6.3",

@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Avatar from '../ui/Avatar';
+import Avatar from '../../ui/Avatar';
 import {
     SideNavListItem,
     SideNavListItemLink,
     SideNavListItemContent,
     SideNavListItemName,
     SideNavListItemSince
-} from '../ui/SideNav';
+} from '../../ui/SideNav';
 
 /**
  * <SideNavListItemComponent />

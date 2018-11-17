@@ -14,12 +14,7 @@ import {
     Input,
     Label
 } from 'react-alegrify-ui';
-import SideNav, {
-    SideNavContent,
-    SideNavFooter,
-    SideNavList,
-    SideNavAwareMain
-} from './ui/SideNav';
+import { SideNavAwareMain } from './ui/SideNav';
 import {
     ProfileHeader,
     ProfileHeaderTitle,
@@ -30,72 +25,20 @@ import {
     ProfileNavListItem,
     ProfileNavListItemLink
 } from './ui/Profile';
-import SideNavListItem from './dashboard/SideNavListItem';
-import SideNavHeader from './dashboard/SideNavHeader';
+import SideNav from './dashboard/side-nav/SideNav';
+
+const mockUsers = [
+    { _id: '2313234', name: 'Jakob Kerkhove', avatar: 'https://source.unsplash.com/50x50/?person&time=2313234', connected_at: '2018-05-03T00:00:00' },
+    { _id: '2313234', name: 'Jos Geyssen', avatar: 'https://source.unsplash.com/50x50/?person&time=2313234', connected_at: '2018-06-01T00:00:00' },
+]
 
 class Dashboard extends Component {
     render() {
         return (
             <React.Fragment>
-                <SideNav>
-                    <SideNavContent>
-                        <SideNavHeader />
-
-                        <SideNavList>
-                            <SideNavListItem
-                                to="/dashboard/2313234"
-                                title="Jakob Kerkhove"
-                                avatar="https://source.unsplash.com/50x50/?person&time=2313234"
-                                subtitle="Connected since May 5th"
-                            />
-                            <SideNavListItem
-                                to="/dashboard/5645656"
-                                title="First Lastname"
-                                avatar="https://source.unsplash.com/50x50/?person&time=5645656"
-                                subtitle="Connected since July 26th"
-                            />
-                            <SideNavListItem
-                                to="/dashboard/5645656"
-                                title="First Lastname"
-                                avatar="https://source.unsplash.com/50x50/?person&time=5645656"
-                                subtitle="Connected since July 26th"
-                            />
-                            <SideNavListItem
-                                to="/dashboard/5645656"
-                                title="First Lastname"
-                                avatar="https://source.unsplash.com/50x50/?person&time=5645656"
-                                subtitle="Connected since July 26th"
-                            />
-                            <SideNavListItem
-                                to="/dashboard/5645656"
-                                title="First Lastname"
-                                avatar="https://source.unsplash.com/50x50/?person&time=5645656"
-                                subtitle="Connected since July 26th"
-                            />
-                            <SideNavListItem
-                                to="/dashboard/5645656"
-                                title="First Lastname"
-                                avatar="https://source.unsplash.com/50x50/?person&time=5645656"
-                                subtitle="Connected since July 26th"
-                            />
-                            <SideNavListItem
-                                to="/dashboard/5645656"
-                                title="First Lastname"
-                                avatar="https://source.unsplash.com/50x50/?person&time=5645656"
-                                subtitle="Connected since July 26th"
-                            />
-                        </SideNavList>
-
-                        <SideNavFooter
-                            to="/dashboard/create"
-                        >
-                            <span>
-                                <strong>#</strong> clients
-                            </span>
-                            <i className="material-icons">add</i>
-                        </SideNavFooter>
-                    </SideNavContent>
-                </SideNav>
+                <SideNav
+                    users={mockUsers}
+                />
 
                 <SideNavAwareMain>
                     <ProfileHeader>

@@ -3,8 +3,8 @@ import {
     SideNavHeader,
     SideNavTitle,
     SideNavSubtitle,
-} from '../ui/SideNav';
-import logo from '../../logo.svg';
+} from '../../ui/SideNav';
+import logo from '../../../logo.svg';
 
 function SideNavHeaderComponent(props) {
     return (
