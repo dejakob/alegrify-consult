@@ -15,54 +15,18 @@ import {
     Label
 } from 'react-alegrify-ui';
 import { SideNavAwareMain } from '../../ui/SideNav';
-import {
-    ProfileHeader,
-    ProfileHeaderTitle,
-    ProfileHeaderContent,
-    ProfileHeaderAvatar,
-    ProfileNav,
-    ProfileNavList,
-    ProfileNavListItem,
-    ProfileNavListItemLink
-} from '../../ui/Profile';
+import ProfileHeader from './ProfileHeader';
+import ProfileNav from './ProfileNav';
 
 function Profile(props) {
     return (
         <SideNavAwareMain>
-            <ProfileHeader>
-                <ProfileHeaderContent>
-                    <ProfileHeaderAvatar
-                        src={props.user.avatar}
-                        alt="avatar"
-                        height="150"
-                        width="150"
-                    />
-                    <ProfileHeaderTitle>
-                        {props.user.name}
-                    </ProfileHeaderTitle>
-                </ProfileHeaderContent>
-            </ProfileHeader>
-
+            <ProfileHeader
+                user={props.user}
+            />
             <ProfileNav
-                className="alegrify-space--extra-large"
-            >
-                <ProfileNavList>
-                    <ProfileNavListItem>
-                        <ProfileNavListItemLink
-                            to={`/dashboard/${props.user._id}`}
-                        >
-                            Overview
-                        </ProfileNavListItemLink>
-                    </ProfileNavListItem>
-                    <ProfileNavListItem>
-                        <ProfileNavListItemLink
-                            to={`/dashboard/${props.user._id}/thoughts`}
-                        >
-                            Thoughts
-                        </ProfileNavListItemLink>
-                    </ProfileNavListItem>
-                </ProfileNavList>
-            </ProfileNav>
+                user={props.user}
+            />
 
             <Grid
                 reverse
