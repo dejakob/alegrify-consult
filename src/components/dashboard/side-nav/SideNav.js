@@ -28,7 +28,7 @@ function SideNavComponent(props) {
                 </SideNavList>
 
                 <SideNavFooter
-                    to="/dashboard/create"
+                    to="/dashboard/connect"
                 >
                     <span>
                         {/* Todo: plural trans */}
