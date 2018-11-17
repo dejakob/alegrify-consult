@@ -78,6 +78,13 @@ const ProfileNavListItemLink = styled(Link)`
     padding: 16px 32px;
     color: #1f1c1c;
     text-decoration: none;
+
+    &:hover {
+        opacity: 0.8;
+    }
+    &:active {
+        opacity: 0.6;
+    }
 `;
 
 export {

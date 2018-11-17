@@ -4,6 +4,7 @@ import { SideNavAwareMain } from '../../ui/SideNav';
 import ProfileHeader from './ProfileHeader';
 import ProfileNav from './ProfileNav';
 import Overview from './overview/Overview';
+import Thoughts from './thoughts/Thoughts';
 
 function Profile(props) {
     return (
@@ -16,7 +17,7 @@ function Profile(props) {
             />
 
             <Switch>
-                <Route path={`/dashboard/${props.user._id}/thoughts`} component={() => <div>Thoughts</div>} />
+                <Route path={`/dashboard/${props.user._id}/thoughts`} component={() => <Thoughts user={props.user} />} />
                 <Route path={`/dashboard/${props.user._id}`} component={() => <Overview user={props.user} />} />
             </Switch>
             

@@ -101,6 +101,12 @@ const SideNavListItemLink = styled(Link)`
     &:focus {
         outline-color: #ffffff;
     }
+    &:hover {
+        opacity: 0.8;
+    }
+    &:active {
+        opacity: 0.6;
+    }
 `;
 const SideNavListItemContent = styled.div`
 
