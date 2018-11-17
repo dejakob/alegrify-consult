@@ -159,6 +159,7 @@ class Welcome extends Component {
                                 href="mailto:happy@alegrify.com"
                                 title="Mail us"
                                 target="_blank"
+                                rel="noopener noreferrer"
                                 style={{ color: '#ffffff' }}
                             >
                                 Contact us

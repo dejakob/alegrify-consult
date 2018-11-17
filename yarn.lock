@@ -954,9 +954,9 @@ ajv@^6.0.1, ajv@^6.1.0, ajv@^6.5.3:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-alegrify-ui@dejakob/alegrify-ui, "alegrify-ui@github:dejakob/alegrify-ui":
+alegrify-ui@dejakob/alegrify-ui:
   version "0.0.1"
-  resolved "https://codeload.github.com/dejakob/alegrify-ui/tar.gz/a4c9402e192d62fca51623e3e1e937f0ef0e8e03"
+  resolved "https://codeload.github.com/dejakob/alegrify-ui/tar.gz/29b2e222fc72785ab6345b71f15a98f590840ff5"
 
 alphanum-sort@^1.0.0:
   version "1.0.2"
@@ -6763,7 +6763,7 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-"react-alegrify-ui@github:dejakob/react-alegrify-ui":
+react-alegrify-ui@dejakob/react-alegrify-ui:
   version "0.0.1"
   resolved "https://codeload.github.com/dejakob/react-alegrify-ui/tar.gz/45fcf28c053047ef27eb0ef6e0dc36951bdb5a39"
   dependencies:

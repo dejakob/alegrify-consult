@@ -12,22 +12,54 @@ const ProfileHeader = styled.header`
 `;
 const ProfileHeaderContent = styled.div`
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    padding: 32px;
     background: rgba(0,0,0,0.6);
+    padding: 32px;
+
+    @media (min-width: 1200px) {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: flex-start;
+    }
 `;
 const ProfileHeaderTitle = styled.h2`
     padding: 0;
     height: auto;
     display: block;
-    line-height: 48px;
-    font-size: 48px;
+    font-size: 24px;
+    line-height: 28px;
     margin: 0;
+    color: #ffffff;
+    text-align: center;
+
+    @media (min-width: 600px) {
+        line-height: 48px;
+        font-size: 48px;
+        font-weight: 100;
+        text-align: left;
+    }
+`;
+const ProfileHeaderAvatar = styled.img`
+    border-radius: 50%;
+    margin-bottom: 16px;
+    border: 2px #ffffff solid;
+
+    @media (min-width: 1200px) {
+        transform: translate(0, 100px);
+        margin-right: 16px;
+        border-radius: 8px;
+    }
 `;
 
 const ProfileNav = styled.nav`
     background-color: #ffffff;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+
+    @media (min-width: 1200px) {
+        padding-left: 170px;
+    }
 `;
 const ProfileNavList = styled.ul`
     display: flex;
@@ -52,6 +84,7 @@ export {
     ProfileHeader,
     ProfileHeaderContent,
     ProfileHeaderTitle,
+    ProfileHeaderAvatar,
 
     ProfileNav,
     ProfileNavList,

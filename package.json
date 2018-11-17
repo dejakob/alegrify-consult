@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "alegrify-ui": "github:dejakob/alegrify-ui",
+    "alegrify-ui": "dejakob/alegrify-ui",
     "babel-eslint": "9.0.0",
     "react": "^16.6.3",
-    "react-alegrify-ui": "github:dejakob/react-alegrify-ui",
+    "react-alegrify-ui": "dejakob/react-alegrify-ui",
     "react-dom": "^16.6.3",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",

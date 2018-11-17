@@ -2,11 +2,17 @@ import React, { Component } from 'react';
 import {
     Aside,
     Article,
+    Button,
     Grid,
     Section,
-    H2
+
+    Dl,
+    Dt,
+    Dd,
+
+    Input,
+    Label
 } from 'react-alegrify-ui';
-import Avatar from './ui/Avatar';
 import SideNav, {
     SideNavContent,
     SideNavFooter,
@@ -17,6 +23,7 @@ import {
     ProfileHeader,
     ProfileHeaderTitle,
     ProfileHeaderContent,
+    ProfileHeaderAvatar,
     ProfileNav,
     ProfileNavList,
     ProfileNavListItem,
@@ -92,15 +99,15 @@ class Dashboard extends Component {
                 <SideNavAwareMain>
                     <ProfileHeader>
                         <ProfileHeaderContent>
-                            <ProfileHeaderTitle>
-                                Firstname Lastname
-                            </ProfileHeaderTitle>
-                            <Avatar
+                            <ProfileHeaderAvatar
                                 src="https://source.unsplash.com/150x150/?person&time=5645656"
                                 alt="avatar"
                                 height="150"
                                 width="150"
                             />
+                            <ProfileHeaderTitle>
+                                Firstname Lastname
+                            </ProfileHeaderTitle>
                         </ProfileHeaderContent>
                     </ProfileHeader>
 
@@ -129,17 +136,46 @@ class Dashboard extends Component {
                         reverse
                     >
                         <Aside
-                            className="alegrify-grid__cell alegrify-grid__cell--4"
+                            className="alegrify-grid__cell alegrify-grid__cell--4 alegrify-space--extra-large"
                         >
                             <Section>
-                                ... aside
+                                <Dl>
+                                    <Dt>First name</Dt>
+                                    <Dd>Jakob</Dd>
+                                    <Dt>Last name</Dt>
+                                    <Dd>Kerkhove</Dd>
+                                    <Dt>Email</Dt>
+                                    <Dd>jakob.kerkhove@gmail.com</Dd>
+                                </Dl>
                             </Section>
                         </Aside>
                         <Article
                             className="alegrify-grid__cell alegrify-grid__cell--8"
                         >
                             <Section>
-                                <H2>About</H2>
+                                <form
+                                    method="POST"
+                                >
+                                    <Label
+                                        htmlFor="notes"
+                                    >
+                                        Notes
+                                    </Label>
+                                    <Input
+                                        name="notes"
+                                        id="notes"
+                                        multiline
+                                        full
+                                        placeholder="Feel free to leave some notes (private information)"
+                                        className="alegrify-space--large"
+                                    />
+                                    <Button
+                                        type="submit"
+                                        primary
+                                    >
+                                        Save
+                                    </Button>
+                                </form>
                             </Section>
                         </Article>
                     </Grid>
