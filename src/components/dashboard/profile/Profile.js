@@ -49,14 +49,14 @@ function Profile(props) {
                 <ProfileNavList>
                     <ProfileNavListItem>
                         <ProfileNavListItemLink
-                            to="/dashboard/$id"
+                            to={`/dashboard/${props.user._id}`}
                         >
                             Overview
                         </ProfileNavListItemLink>
                     </ProfileNavListItem>
                     <ProfileNavListItem>
                         <ProfileNavListItemLink
-                            to="/dashboard/$id/thoughts"
+                            to={`/dashboard/${props.user._id}/thoughts`}
                         >
                             Thoughts
                         </ProfileNavListItemLink>
