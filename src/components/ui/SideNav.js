@@ -41,8 +41,6 @@ const slideOut = keyframes`
 `;
 
 const SideNavTrigger = styled.button`
-  position: fixed;
-  z-index: 2;
   appereance: none;
   background: none;
   border: none;
@@ -50,9 +48,7 @@ const SideNavTrigger = styled.button`
   color: #ffffff;
 
   display: block;
-  position: fixed;
-  top: 16px;
-  left: 16px;
+  margin: 16px;
 
   &:hover {
     opacity: 0.8;
@@ -126,11 +122,12 @@ const SideNavContent = styled.div`
     height: 100%;
     background: #1f1c1c;
     color: #ffffff;
-    margin-right: 20%;
+    width: 80%;
+    max-width: 400px;
     z-index: 3;
 
     @media (min-width: 1200px) {
-        margin-right: 0;
+        width: 100%;
     }
 `;
 

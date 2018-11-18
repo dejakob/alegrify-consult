@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
+import styled from 'styled-components';
 
 import SideNav from './dashboard/side-nav/SideNav';
 import SideNavTrigger from './dashboard/side-nav/SideNavTrigger';
@@ -11,6 +12,28 @@ const mockUsers = [
     { _id: '2313299', name: 'Jos Geyssen', avatar: 'https://source.unsplash.com/50x50/?person&time=2313299', connected_at: '2018-06-01T00:00:00' },
 ]
 
+const StickyHeader = styled.header`
+    position: sticky;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    background-color: #1f1c1c;
+    width: 100%;
+    top: 0;
+
+    > span {
+        flex: 1;
+        text-align: center;
+        margin-right: 60px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    @media (min-width: 1200px) {
+        display: none;
+    }
+`;
+
 class Dashboard extends Component {
     render() {
         const userId = this.props.match.params.user;
@@ -18,7 +41,10 @@ class Dashboard extends Component {
 
         return (
             <React.Fragment>
-                <SideNavTrigger />
+                <StickyHeader>
+                    <SideNavTrigger />
+                    <span>Alegrify Consult</span>
+                </StickyHeader>
                 <SideNav
                     users={mockUsers}
                 />
