@@ -26,6 +26,13 @@ function ProfileNavComponent(props) {
                         Thoughts
                     </ProfileNavListItemLink>
                 </ProfileNavListItem>
+                <ProfileNavListItem>
+                    <ProfileNavListItemLink
+                        to={`/dashboard/${props.user._id}/questions`}
+                    >
+                        Personality (Questionaire)
+                    </ProfileNavListItemLink>
+                </ProfileNavListItem>
             </ProfileNavList>
         </ProfileNav>
     );

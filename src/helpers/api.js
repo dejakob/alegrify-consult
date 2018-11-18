@@ -5,7 +5,7 @@ const API_HOST = process.env.NODE_ENV === 'production' ?
 class Api {
     static _token;
 
-    static isLoggedIn() {
+    static get isLoggedIn() {
         return Api._token &&
             typeof Api._token === 'string' &&
             Api._token.trim() !== '';

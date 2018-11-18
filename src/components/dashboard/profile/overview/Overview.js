@@ -8,7 +8,9 @@ function Overview(props) {
         <Grid
             reverse
         >
-            <OverviewAside />
+            <OverviewAside
+                user={props.user}
+            />
             <OverviewArticle
                 user={props.user}
             />

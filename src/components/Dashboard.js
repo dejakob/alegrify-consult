@@ -7,10 +7,7 @@ import SideNavTrigger from './dashboard/side-nav/SideNavTrigger';
 import Profile from './dashboard/profile/Profile';
 import Connect from './dashboard/connect/Connect';
 
-const mockUsers = [
-    { _id: '2313234', name: 'Jakob Kerkhove', avatar: 'https://source.unsplash.com/50x50/?person&time=2313234', connected_at: '2018-05-03T00:00:00' },
-    { _id: '2313299', name: 'Jos Geyssen', avatar: 'https://source.unsplash.com/50x50/?person&time=2313299', connected_at: '2018-06-01T00:00:00' },
-]
+import Api from '../helpers/api';
 
 const StickyHeader = styled.header`
     position: sticky;
@@ -35,9 +32,31 @@ const StickyHeader = styled.header`
 `;
 
 class Dashboard extends Component {
+    async componentWillMount() {
+        this.setState({
+            isLoadingClients: true,
+            clients: []
+        })
+
+        // Todo redux
+        try {
+            const response = await Api.get('/api/clients');
+            this.setState({
+                isLoadingClients: false,
+                clients: response.clients
+            });
+        }
+        catch (ex) {
+            console.log('ex', ex);
+            this.setState({
+                isLoadingClients: false
+            });
+        }
+    }
+
     render() {
         const userId = this.props.match.params.user;
-        const user = mockUsers.find(user => user._id === userId);
+        const user = this.state.clients.find(user => user._id === userId);
 
         return (
             <React.Fragment>
@@ -46,7 +65,7 @@ class Dashboard extends Component {
                     <span>Alegrify Consult</span>
                 </StickyHeader>
                 <SideNav
-                    users={mockUsers}
+                    users={this.state.clients}
                 />
 
                 {user ? (

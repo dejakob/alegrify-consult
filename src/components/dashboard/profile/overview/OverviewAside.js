@@ -9,11 +9,11 @@ function OverviewAside(props) {
             <Section>
                 <Dl>
                     <Dt>First name</Dt>
-                    <Dd>xxx</Dd>
+                    <Dd>{props.user.first_name}</Dd>
                     <Dt>Last name</Dt>
-                    <Dd>xxx</Dd>
+                    <Dd>{props.user.first_name}</Dd>
                     <Dt>Email</Dt>
-                    <Dd>xxx@gmail.com</Dd>
+                    <Dd>{props.user.email}</Dd>
                 </Dl>
             </Section>
         </Aside>

@@ -956,7 +956,7 @@ ajv@^6.0.1, ajv@^6.1.0, ajv@^6.5.3:
 
 alegrify-ui@dejakob/alegrify-ui:
   version "0.0.1"
-  resolved "https://codeload.github.com/dejakob/alegrify-ui/tar.gz/29b2e222fc72785ab6345b71f15a98f590840ff5"
+  resolved "https://codeload.github.com/dejakob/alegrify-ui/tar.gz/93b9e574d2e2eae0f4de3dd50481bdc14ea98eac"
 
 alphanum-sort@^1.0.0:
   version "1.0.2"
