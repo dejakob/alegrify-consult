@@ -155,7 +155,7 @@ const SideNavFooter = styled(Link)`
     justify-content: space-between;
     background: none;
     width: 100%;
-    background: #1f1c1c;
+    background: rgba(149, 52, 149, 0.8);
     color: #ffffff;
 
     position: absolute;
@@ -176,9 +176,11 @@ const SideNavFooter = styled(Link)`
     box-sizing: border-box;
     text-decoration: none;
 
-    &:hover,
+    &:hover {
+        background: rgba(149, 52, 149, 0.9);
+    }
     &:active {
-        background: #3e3838;
+        background: rgba(149, 52, 149, 1);
     }
     &:focus {
         outline-color: #ffffff;
