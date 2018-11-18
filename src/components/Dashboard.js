@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 
 import SideNav from './dashboard/side-nav/SideNav';
+import SideNavTrigger from './dashboard/side-nav/SideNavTrigger';
 import Profile from './dashboard/profile/Profile';
 import Connect from './dashboard/connect/Connect';
 
@@ -17,6 +18,7 @@ class Dashboard extends Component {
 
         return (
             <React.Fragment>
+                <SideNavTrigger />
                 <SideNav
                     users={mockUsers}
                 />

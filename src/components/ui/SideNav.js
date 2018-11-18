@@ -1,27 +1,137 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Main } from 'react-alegrify-ui';
 import { Link } from 'react-router-dom';
 
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`;
+const fadeOut = keyframes`
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+`;
+const slideIn = keyframes`
+  from {
+    transform: translate(-600px, 0);
+  }
+
+  to {
+    transform: translate(0, 0);
+  }
+`;
+const slideOut = keyframes`
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(-600px, 0);
+  }
+`;
+
+const SideNavTrigger = styled.button`
+  position: fixed;
+  z-index: 2;
+  appereance: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+
+  display: block;
+  position: fixed;
+  top: 16px;
+  left: 16px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+  &:active {
+    opacity: 0.6;
+  }
+  &:focus {
+      outline-color: #ffffff;
+  }
+`;
 const SideNav = styled.nav`
+    display: none;
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
-    background: #1f1c1c;
-    color: #ffffff;
+    right: 0;
+    z-index: 2;
 
-    /* Todo: drawer on small screens */
-    display: none;
+    &.is-open {
+        display: block;
+    }
+
+    & > div {
+        animation: 0.4s ${slideOut};
+    }
+    &.is-open > div {
+        animation: 0.4s ${slideIn};
+    }
+
+    &:before {
+        display: block;  
+        content: '';
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        opacity: 0;
+        background: rgba(0,0,0,0.7); 
+        animation: 0.4s ${fadeOut};
+    }
+    &.is-open:before {
+        opacity: 1;
+        animation: 0.4s ${fadeIn};
+    }
     
     @media (min-width: 1200px) {
+        &:before {
+            display: none;
+            animation: none;
+        }
+        &.is-open,
+        & > div,
+        &.is-open > div {
+            animation: none;
+        }
+
+        animation: none;
+        right: auto;
+        background: none;
         display: block;
         width: 300px;
     }
+
 `;
 const SideNavContent = styled.div`
     position: relative;
     height: 100%;
+    background: #1f1c1c;
+    color: #ffffff;
+    margin-right: 20%;
+    z-index: 3;
+
+    @media (min-width: 1200px) {
+        margin-right: 0;
+    }
 `;
 
 const SideNavHeader = styled.header`
@@ -144,6 +254,7 @@ const SideNavAwareMain = (props) => {
 
 export default SideNav;
 export {
+    SideNavTrigger,
     SideNavContent,
 
     SideNavHeader,

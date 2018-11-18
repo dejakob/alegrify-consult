@@ -6,40 +6,36 @@ import Mountains from '../../../images/mountains.jpg';
 function Connect() {
     return (
         <SideNavAwareMain>
-            <div
-                style={{ marginTop: '32px' }}
-            >
-                <Card
-                    small
-                    headerImage={Mountains}
-                    title="Connect"
-                    footer={
-                        <Button
-                            type="submit"
-                            primary
-                            full
-                        >
-                            Connect
-                        </Button>
-                    }
-                >
-                    <P>
-                        To connect with an Alegrify user, please provide their email address. The user needs to accept the request before you can access any data.
-                    </P>
-
-                    <Label
-                        htmlFor="connect_email"
-                    >
-                        Email address
-                    </Label>
-                    <Input
-                        id="connect_email"
-                        name="connect_email"
-                        placeholder="email@provider.com"
+            <Card
+                small
+                headerImage={Mountains}
+                title="Connect"
+                footer={
+                    <Button
+                        type="submit"
+                        primary
                         full
-                    />
-                </Card>
-            </div>
+                    >
+                        Connect
+                    </Button>
+                }
+            >
+                <P>
+                    To connect with an Alegrify user, please provide their email address. The user needs to accept the request before you can access any data.
+                </P>
+
+                <Label
+                    htmlFor="connect_email"
+                >
+                    Email address
+                </Label>
+                <Input
+                    id="connect_email"
+                    name="connect_email"
+                    placeholder="email@provider.com"
+                    full
+                />
+            </Card>
         </SideNavAwareMain>
     );
 }
