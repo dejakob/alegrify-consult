@@ -956,7 +956,7 @@ ajv@^6.0.1, ajv@^6.1.0, ajv@^6.5.3:
 
 alegrify-ui@dejakob/alegrify-ui:
   version "0.0.1"
-  resolved "https://codeload.github.com/dejakob/alegrify-ui/tar.gz/93b9e574d2e2eae0f4de3dd50481bdc14ea98eac"
+  resolved "https://codeload.github.com/dejakob/alegrify-ui/tar.gz/6138a6512fdb2c56509b4a1f1452476d14b21863"
 
 alphanum-sort@^1.0.0:
   version "1.0.2"
@@ -6765,7 +6765,7 @@ rc@^1.2.7:
 
 react-alegrify-ui@dejakob/react-alegrify-ui:
   version "0.0.1"
-  resolved "https://codeload.github.com/dejakob/react-alegrify-ui/tar.gz/45fcf28c053047ef27eb0ef6e0dc36951bdb5a39"
+  resolved "https://codeload.github.com/dejakob/react-alegrify-ui/tar.gz/ca9743b05a598cb8c84fb838eb2743aef2179f86"
   dependencies:
     alegrify-ui dejakob/alegrify-ui
 
