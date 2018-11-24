@@ -28,7 +28,7 @@ function SideNavListItemComponent(props) {
                     </SideNavListItemSince>
                 </SideNavListItemContent>
                 <Avatar
-                    src={props.avatar}
+                    src={props.avatar && props.avatar.replace('$SIZE', '120x120')}
                     alt="avatar"
                     height={50}
                     width={50}

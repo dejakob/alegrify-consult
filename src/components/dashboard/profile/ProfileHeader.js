@@ -11,7 +11,7 @@ function ProfileHeaderComponent(props) {
         <ProfileHeader>
             <ProfileHeaderContent>
                 <ProfileHeaderAvatar
-                    src={props.user.avatar}
+                    src={props.user.avatar && props.user.avatar.replace('$SIZE', '320x320')}
                     alt="avatar"
                     height="150"
                     width="150"

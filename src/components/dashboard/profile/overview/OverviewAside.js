@@ -11,7 +11,7 @@ function OverviewAside(props) {
                     <Dt>First name</Dt>
                     <Dd>{props.user.first_name}</Dd>
                     <Dt>Last name</Dt>
-                    <Dd>{props.user.first_name}</Dd>
+                    <Dd>{props.user.last_name}</Dd>
                     <Dt>Email</Dt>
                     <Dd>{props.user.email}</Dd>
                 </Dl>

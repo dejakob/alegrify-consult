@@ -31,20 +31,28 @@ const StickyHeader = styled.header`
     }
 `;
 
+let clients = [];
+let hasLoadedClients = false;
+
 class Dashboard extends Component {
     async componentWillMount() {
         this.setState({
             isLoadingClients: true,
-            clients: []
+            hasLoadedClients: false,
+            clients
         })
 
         // Todo redux
         try {
-            const response = await Api.get('/api/clients');
-            this.setState({
-                isLoadingClients: false,
-                clients: response.clients
-            });
+            if (!hasLoadedClients) {
+                const response = await Api.get('/api/clients');
+                hasLoadedClients = true;
+                clients = response.clients;
+                this.setState({
+                    isLoadingClients: false,
+                    clients
+                });
+            }
         }
         catch (ex) {
             console.log('ex', ex);

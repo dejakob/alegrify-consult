@@ -47,7 +47,7 @@ class SideNavComponent extends Component {
                             <SideNavListItem
                                 key={index}
                                 to={`/dashboard/${user._id}`}
-                                title={user.name}
+                                title={user.full_name}
                                 avatar={user.avatar}
                                 subtitle={`Connected since ${moment(user.connected_at).format('MMM Do')}`}
                             />
