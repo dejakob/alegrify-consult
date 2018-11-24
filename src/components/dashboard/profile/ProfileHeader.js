@@ -5,13 +5,14 @@ import {
     ProfileHeaderContent,
     ProfileHeaderAvatar
 } from '../../ui/Profile';
+import { backgroundImage } from '../../../helpers/image-helper';
 
 function ProfileHeaderComponent(props) {
     return (
         <ProfileHeader>
             <ProfileHeaderContent>
                 <ProfileHeaderAvatar
-                    src={props.user.avatar && props.user.avatar.replace('$SIZE', '320x320')}
+                    src={backgroundImage(props, ['user', 'avatar'], { height: 150, width: 150 })}
                     alt="avatar"
                     height="150"
                     width="150"

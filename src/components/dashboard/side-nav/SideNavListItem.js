@@ -8,6 +8,7 @@ import {
     SideNavListItemName,
     SideNavListItemSince
 } from '../../ui/SideNav';
+import { backgroundImage } from '../../../helpers/image-helper';
 
 /**
  * <SideNavListItemComponent />
@@ -28,7 +29,7 @@ function SideNavListItemComponent(props) {
                     </SideNavListItemSince>
                 </SideNavListItemContent>
                 <Avatar
-                    src={props.avatar && props.avatar.replace('$SIZE', '120x120')}
+                    src={backgroundImage(props, ['avatar'], { height: 50, width: 50 })}
                     alt="avatar"
                     height={50}
                     width={50}
