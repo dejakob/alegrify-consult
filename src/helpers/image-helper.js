@@ -42,10 +42,12 @@ function loadImage(path, size) {
  * @returns {String}
  */
 function backgroundImage(object, props, options = {}) {
-    let val = object[props[0]]
+    const imageProps = [...props];
+    let val = object[props[0]];
 
-    if (typeof val === 'object' && props.length > 1) {
-        return backgroundImage(val, props.splice(0, 1), options);
+    if (typeof val === 'object' && imageProps.length > 1) {
+        imageProps.splice(0, 1);
+        return backgroundImage(val, imageProps, options);
     }
     else if (typeof val === 'string') {
         return loadImage(val, options);
