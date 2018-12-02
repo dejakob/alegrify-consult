@@ -8,7 +8,7 @@ const mockThoughts = [
         thought: 'Just a thought',
         thought_event: 'Because of this',
         my_mood: 6,
-        createdAt: '2018-07-03T18:30:00',
+        created_at: '2018-07-03T18:30:00',
         reflections: []
     }
 ]

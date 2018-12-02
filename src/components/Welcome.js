@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, Grid, H1, Main, Section, Label, Input } from 'react-alegrify-ui';
 import logo from '../logo.svg';
 import Api from '../helpers/api';
+import store, { ACTIONS, mapStateToProps } from '../services/store';
 
 // Todo: clientside validation
 
@@ -14,10 +15,8 @@ class Welcome extends Component {
 
     componentWillMount() {
         this.setState({
-            isLoading: false,
             email: '',
-            password: '',
-            validationErrors: {}
+            password: ''
         });
     }
 
@@ -25,21 +24,16 @@ class Welcome extends Component {
         eventData.preventDefault();
 
         try {
-            this.setState({ isLoading: true, validationErrors: {} });
-            await Api.login(this.state.email, this.state.password);
-            this.setState({ isLoading: false });
+            store.dispatch({ type: ACTIONS.AUTH_LOGIN });
+            const response = await Api.login(this.state.email, this.state.password);
+            store.dispatch({ type: ACTIONS.AUTH_LOGIN_SUCCESS, response });
             this.props.history.push('/dashboard');
         }
         catch (ex) {
-            if (ex && ex.validation_errors) {
-                this.setState({
-                    validationErrors: ex.validation_errors,
-                    isLoading: false
-                });
-            }
-            else {
-                this.setState({ isLoading: false });
-            }
+            store.dispatch({
+                type: ACTIONS.AUTH_LOGIN_FAILED,
+                validationErrors: ex && ex.validation_errors
+            });
         }
     }
 
@@ -104,9 +98,9 @@ class Welcome extends Component {
                                 <Label
                                     error
                                     htmlFor="login_user_name"
-                                    className={this.state.validationErrors.email ? 'alegrify-space--large' : ''}
+                                    className={this.props.auth.validationErrors.email ? 'alegrify-space--large' : ''}
                                 >
-                                    {this.state.validationErrors.email}
+                                    {this.props.auth.validationErrors.email}
                                 </Label>
     
                                 <Label
@@ -127,17 +121,17 @@ class Welcome extends Component {
                                 <Label
                                     error
                                     htmlFor="login_password"
-                                    className={this.state.validationErrors.password ? 'alegrify-space--large' : ''}
+                                    className={this.props.auth.validationErrors.password ? 'alegrify-space--large' : ''}
                                 >
-                                    {this.state.validationErrors.password}
+                                    {this.props.auth.validationErrors.password}
                                 </Label>
     
                                 <Button
                                     type="submit"
                                     primary
                                     full
-                                    loading={this.state.isLoading}
-                                    disabled={!this.isValid || this.state.isLoading}
+                                    loading={this.props.auth.loading}
+                                    disabled={!this.isValid || this.props.auth.loading}
                                 >
                                     Log in
                                 </Button>
@@ -145,7 +139,7 @@ class Welcome extends Component {
                                     error
                                     htmlFor="login_user_name"
                                 >
-                                    {this.state.validationErrors.is_consult}
+                                    {this.props.auth.validationErrors.is_consult}
                                 </Label>
                             </form>
                         </Section>
@@ -173,4 +167,4 @@ class Welcome extends Component {
 }
 
 
-export default Welcome;
+export default mapStateToProps(Welcome, ['auth']);

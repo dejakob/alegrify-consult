@@ -74,7 +74,7 @@ function bgImageCss(object, props, options = {}) {
  * @returns {Boolean}
  */
 function isRetina(){
-    if (!window) {
+    if (typeof window !== 'undefined' || !window) {
         return true;
     }
 

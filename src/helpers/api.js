@@ -1,14 +1,16 @@
+import store from '../services/store';
+
 const API_HOST = process.env.NODE_ENV === 'production' ?
     'alegrify.com' :
     'localhost:3001';
 
 class Api {
-    static _token;
+    static get token() {
+        return store.getState().auth.token;
+    }
 
     static get isLoggedIn() {
-        return Api._token &&
-            typeof Api._token === 'string' &&
-            Api._token.trim() !== '';
+        return !!Api.token;
     }
 
     static login(email, password) {
@@ -18,7 +20,8 @@ class Api {
                 if (!response.token || typeof response.token !== 'string' || response.token.trim() === '') {
                     throw response;
                 }
-                Api._token = response.token;
+
+                return response.token;
             });
     }
 
@@ -27,7 +30,7 @@ class Api {
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/json; charset=utf-8',
-                'authorization': `Bearer ${Api._token}` 
+                'authorization': `Bearer ${Api.token}` 
             },
             cache: 'no-cache'
         }).then(r => r.json());
@@ -39,7 +42,7 @@ class Api {
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/json; charset=utf-8',
-                'authorization': `Bearer ${Api._token}` 
+                'authorization': `Bearer ${Api.token}` 
             },
             cache: 'no-cache',
             body: JSON.stringify(data)

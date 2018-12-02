@@ -12,7 +12,7 @@ class Thought extends Component {
         return (
             <HistoricItem
                 className={this.props.className}
-                date={this.props.createdAt}
+                date={this.props.created_at}
             >
                 <div 
                     className="alegrify-space--large"
@@ -34,7 +34,7 @@ class Thought extends Component {
                 <Link
                     to={`/dashboard/thought/${this.props.id}`}
                     title="Reflect thought"
-                >{moment(this.props.createdAt).format('dddd, MMMM Do YYYY, h:mm:ss a')}</Link>
+                >{moment(this.props.created_at).format('dddd, MMMM Do YYYY, h:mm:ss a')}</Link>
             </HistoricItem>
         )
     }
@@ -45,7 +45,7 @@ Thought.propTypes = {
     thought: PropTypes.string.isRequired,
     thought_event: PropTypes.string.isRequired,
     my_mood: PropTypes.number.isRequired,
-    createdAt: PropTypes.oneOfType([
+    created_at: PropTypes.oneOfType([
         PropTypes.number,
         PropTypes.string
     ]),

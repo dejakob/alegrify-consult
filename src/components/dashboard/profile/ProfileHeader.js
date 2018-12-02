@@ -8,7 +8,6 @@ import {
 import { backgroundImage } from '../../../helpers/image-helper';
 
 function ProfileHeaderComponent(props) {
-    console.log('props.user', props.user);
     return (
         <ProfileHeader>
             <ProfileHeaderContent>
