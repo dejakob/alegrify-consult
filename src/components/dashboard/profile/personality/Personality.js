@@ -1,10 +1,13 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Article, Aside, Grid, Section } from 'react-alegrify-ui';
+import { Aside, Grid, Section } from 'react-alegrify-ui';
+import PersonalityArticle from './PersonalityArticle';
 
 
-class Personality extends Component {
+class Personality extends PureComponent {
     render() {
+        const answers = this.props.user.answers || [];
+
         return (
             <React.Fragment>
                 <Grid
@@ -14,14 +17,11 @@ class Personality extends Component {
                         className="alegrify-grid__cell alegrify-grid__cell--4 alegrify-space--extra-large"
                     >
                         <Section>
-                            ...
                         </Section>
                     </Aside>
-                    <Article
-                        className="alegrify-grid__cell alegrify-grid__cell--8"
-                    >
-                        ... questions...
-                    </Article>
+                    <PersonalityArticle
+                        answers={answers}
+                    />
                 </Grid>
             </React.Fragment>
         )

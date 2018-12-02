@@ -8,6 +8,7 @@ import Profile from './dashboard/profile/Profile';
 import Connect from './dashboard/connect/Connect';
 
 import Api from '../helpers/api';
+import store, { mapStateToProps, ACTIONS } from '../services/store';
 
 const StickyHeader = styled.header`
     position: sticky;
@@ -31,40 +32,40 @@ const StickyHeader = styled.header`
     }
 `;
 
-let clients = [];
-let hasLoadedClients = false;
-
 class Dashboard extends Component {
     async componentWillMount() {
-        this.setState({
-            isLoadingClients: true,
-            hasLoadedClients: false,
-            clients
-        })
-
-        // Todo redux
         try {
-            if (!hasLoadedClients) {
-                const response = await Api.get('/api/clients');
-                hasLoadedClients = true;
-                clients = response.clients;
-                this.setState({
-                    isLoadingClients: false,
-                    clients
-                });
-            }
+            store.dispatch({ type: ACTIONS.CLIENTS_LOAD_ALL });
+            const { clients } = await Api.get('/api/clients');
+            store.dispatch({ type: ACTIONS.CLIENTS_LOAD_ALL_SUCCESS, clients });
         }
         catch (ex) {
-            console.log('ex', ex);
-            this.setState({
-                isLoadingClients: false
-            });
+            store.dispatch({ type: ACTIONS.CLIENTS_LOAD_ALL_FAILED });
+        }
+
+        const userId = this.props.match.params.user;
+
+        if (userId && this.props.location.pathname.indexOf('/personality') > -1) {
+            try {
+                store.dispatch({ type: ACTIONS.CLIENT_LOAD_ANSWERS });
+                const answers = await Api.get(`/api/answers/${userId}`);
+                store.dispatch({
+                    type: ACTIONS.CLIENT_LOAD_ANSWERS_SUCCESS,
+                    clientId: userId,
+                    answers
+                });
+            }
+            catch (ex) {
+                store.dispatch({
+                    type: ACTIONS.CLIENT_LOAD_ANSWERS_FAILED
+                });
+            }
         }
     }
 
     render() {
         const userId = this.props.match.params.user;
-        const user = this.state.clients.find(user => user._id === userId);
+        const user = this.props.clients.clients.find(user => user._id === userId);
 
         return (
             <React.Fragment>
@@ -73,7 +74,7 @@ class Dashboard extends Component {
                     <span>Alegrify Consult</span>
                 </StickyHeader>
                 <SideNav
-                    users={this.state.clients}
+                    users={this.props.clients.clients}
                 />
 
                 {user ? (
@@ -88,4 +89,4 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+export default mapStateToProps(Dashboard, ['clients']);

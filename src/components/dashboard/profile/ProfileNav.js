@@ -30,7 +30,7 @@ function ProfileNavComponent(props) {
                     <ProfileNavListItemLink
                         to={`/dashboard/${props.user._id}/personality`}
                     >
-                        Personality (Questionaire)
+                        Personality
                     </ProfileNavListItemLink>
                 </ProfileNavListItem>
             </ProfileNavList>
