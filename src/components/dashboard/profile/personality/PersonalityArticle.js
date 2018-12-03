@@ -14,7 +14,7 @@ function PersonalityArticle(props) {
                 <Dl>
                     {props.answers.map(answer => (
                         <React.Fragment>     
-                            <Dt>{answer.question.id}</Dt>
+                            <Dt>{answer.question}</Dt>
                             <Dd>{answer.answer}</Dd>
                         </React.Fragment>
                     ))}

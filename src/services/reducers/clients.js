@@ -26,13 +26,10 @@ function clientsReducer(s = INITIAL_STATE, action) {
             return state.set('loading', true);
         
         case ACTIONS.CLIENT_LOAD_ANSWERS_SUCCESS:
+            const index = state.get('clients').findIndex(client => client.get('_id') === action.clientId);
             return state
                 .set('loading', true)
-                .update('clients', clients =>
-                    clients.mergeDeep(action.clients, [
-                        { _id: action.clientId, answers: action.answers }
-                    ])
-                );
+                .setIn(['clients', index, 'answers'], Immutable.fromJS(action.answers));
 
         case ACTIONS.CLIENT_LOAD_ANSWERS_FAILED:
             return state.set('loading', false);
