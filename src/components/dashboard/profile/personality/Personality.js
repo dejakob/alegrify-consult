@@ -17,6 +17,8 @@ class Personality extends PureComponent {
                         className="alegrify-grid__cell alegrify-grid__cell--4 alegrify-space--extra-large"
                     >
                         <Section>
+                            Each user answers the questions in the language of his/her preference. <br /><br />
+                            When the user changes the answer of a question, the last chosen answer will be shown.
                         </Section>
                     </Aside>
                     <PersonalityArticle

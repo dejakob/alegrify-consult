@@ -43,7 +43,9 @@ class Dashboard extends Component {
             store.dispatch({ type: ACTIONS.CLIENTS_LOAD_ALL_FAILED });
         }
 
-        const userId = this.props.match.params.user;
+        const userName = this.props.match.params.user;
+        const user = this.props.clients.clients && this.props.clients.clients.find(user => user.user_name === userName);
+        const userId = user && user._id;
 
         if (userId && this.props.location.pathname.indexOf('/personality') > -1) {
             try {
@@ -61,11 +63,28 @@ class Dashboard extends Component {
                 });
             }
         }
+
+        if (userId && this.props.location.pathname.indexOf('/thoughts') > -1) {
+            try {
+                store.dispatch({ type: ACTIONS.CLIENT_LOAD_THOUGHTS });
+                const thoughts = await Api.get(`/api/thoughts/${userId}`);
+                store.dispatch({
+                    type: ACTIONS.CLIENT_LOAD_THOUGHTS_SUCCESS,
+                    clientId: userId,
+                    thoughts
+                });
+            }
+            catch (ex) {
+                store.dispatch({
+                    type: ACTIONS.CLIENT_LOAD_THOUGHTS_FAILED
+                });
+            }
+        }
     }
 
     render() {
-        const userId = this.props.match.params.user;
-        const user = this.props.clients.clients.find(user => user._id === userId);
+        const userName = this.props.match.params.user;
+        const user = this.props.clients.clients && this.props.clients.clients.find(user => user.user_name === userName);
 
         return (
             <React.Fragment>
@@ -74,7 +93,7 @@ class Dashboard extends Component {
                     <span>Alegrify Consult</span>
                 </StickyHeader>
                 <SideNav
-                    users={this.props.clients.clients}
+                    users={this.props.clients.clients || []}
                 />
 
                 {user ? (

@@ -32,7 +32,7 @@ class Thought extends Component {
                 </div>
 
                 <Link
-                    to={`/dashboard/thought/${this.props.id}`}
+                    to={`/dashboard/${this.props.user._id}/thought/${this.props.id}`}
                     title="Reflect thought"
                 >{moment(this.props.created_at).format('dddd, MMMM Do YYYY, h:mm:ss a')}</Link>
             </HistoricItem>
@@ -42,6 +42,7 @@ class Thought extends Component {
 
 Thought.propTypes = {
     id: PropTypes.string.isRequired,
+    user: PropTypes.object.isRequired,
     thought: PropTypes.string.isRequired,
     thought_event: PropTypes.string.isRequired,
     my_mood: PropTypes.number.isRequired,

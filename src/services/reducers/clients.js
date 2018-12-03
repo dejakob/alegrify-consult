@@ -7,6 +7,7 @@ const INITIAL_STATE =  {
 
 function clientsReducer(s = INITIAL_STATE, action) {
     const state = Immutable.fromJS(s);
+    let userIndex;
 
     switch (action.type) {
         case ACTIONS.CLIENTS_LOAD_ALL:
@@ -15,23 +16,53 @@ function clientsReducer(s = INITIAL_STATE, action) {
         case ACTIONS.CLIENTS_LOAD_ALL_SUCCESS:
             return state
                 .set('loading', true)
-                .update('clients', clients =>
-                    clients.mergeDeep(action.clients)
-                );
+                .set('clients', Immutable.fromJS(
+                    action.clients.map(client => {
+                        const originalClient = state
+                            .get('clients')
+                            .find(c => c.get('_id') === client._id);
+
+                        if (!originalClient) {
+                            return client;
+                        }
+
+                        return Immutable.fromJS({
+                            ...client,
+                            answers: originalClient.get('answers'),
+                            thoughts: originalClient.get('thoughts')
+                        });
+                    })
+                ));
 
         case ACTIONS.CLIENTS_LOAD_ALL_FAILED:
             return state.set('loading', false);
 
+        
+        /* Answers */
         case ACTIONS.CLIENT_LOAD_ANSWERS:
             return state.set('loading', true);
         
         case ACTIONS.CLIENT_LOAD_ANSWERS_SUCCESS:
-            const index = state.get('clients').findIndex(client => client.get('_id') === action.clientId);
+            userIndex = state.get('clients').findIndex(client => client.get('_id') === action.clientId);
             return state
                 .set('loading', true)
-                .setIn(['clients', index, 'answers'], Immutable.fromJS(action.answers));
+                .setIn(['clients', userIndex, 'answers'], Immutable.fromJS(action.answers));
 
         case ACTIONS.CLIENT_LOAD_ANSWERS_FAILED:
+            return state.set('loading', false);
+
+
+        /* Thoughts */
+        case ACTIONS.CLIENT_LOAD_THOUGHTS:
+            return state.set('loading', true);
+        
+        case ACTIONS.CLIENT_LOAD_THOUGHTS_SUCCESS:
+            userIndex = state.get('clients').findIndex(client => client.get('_id') === action.clientId);
+            return state
+                .set('loading', false)
+                .setIn(['clients', userIndex, 'thoughts'], Immutable.fromJS(action.thoughts));
+
+        case ACTIONS.CLIENT_LOAD_THOUGHTS_FAILED:
             return state.set('loading', false);
 
         default:

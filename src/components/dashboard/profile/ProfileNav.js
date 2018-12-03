@@ -14,21 +14,21 @@ function ProfileNavComponent(props) {
             <ProfileNavList>
                 <ProfileNavListItem>
                     <ProfileNavListItemLink
-                        to={`/dashboard/${props.user._id}`}
+                        to={`/dashboard/${props.user.user_name}`}
                     >
                         Overview
                     </ProfileNavListItemLink>
                 </ProfileNavListItem>
                 <ProfileNavListItem>
                     <ProfileNavListItemLink
-                        to={`/dashboard/${props.user._id}/thoughts`}
+                        to={`/dashboard/${props.user.user_name}/thoughts`}
                     >
                         Thoughts
                     </ProfileNavListItemLink>
                 </ProfileNavListItem>
                 <ProfileNavListItem>
                     <ProfileNavListItemLink
-                        to={`/dashboard/${props.user._id}/personality`}
+                        to={`/dashboard/${props.user.user_name}/personality`}
                     >
                         Personality
                     </ProfileNavListItemLink>

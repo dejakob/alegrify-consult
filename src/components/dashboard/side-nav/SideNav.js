@@ -46,7 +46,7 @@ class SideNavComponent extends Component {
                         {props.users.map((user, index) => (
                             <SideNavListItem
                                 key={index}
-                                to={`/dashboard/${user._id}`}
+                                to={`/dashboard/${user.user_name}`}
                                 title={user.full_name}
                                 avatar={user.avatar}
                                 subtitle={`Connected since ${moment(user.connected_at).format('MMM Do')}`}

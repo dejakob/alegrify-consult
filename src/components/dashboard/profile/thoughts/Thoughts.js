@@ -29,9 +29,14 @@ function Thoughts(props) {
                 user={props.user}
                 className="alegrify-grid__cell alegrify-grid__cell--8"
             >
-                <Thought
-                    {...mockThoughts[0]}
-                />
+                {props.user.thoughts && props.user.thoughts.map((thought, index) => (
+                    <Thought
+                        key={index}
+                        user={props.user}
+                        className="alegrify-space--extra-large"
+                        {...thought}
+                    />
+                ))}
             </Article>
         </Grid>
     );
