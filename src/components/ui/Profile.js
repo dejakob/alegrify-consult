@@ -64,20 +64,31 @@ const ProfileNav = styled.nav`
     }
 `;
 const ProfileNavList = styled.ul`
-    display: flex;
-    justify-content: flex-start;
     margin: 0;
     padding: 0;
     list-style: none;
+
+    @media (min-width: 600px) {
+        display: flex;
+        justify-content: flex-start;
+    }
 `;
 const ProfileNavListItem = styled.li`
+    display: block;
+
     & + & {
-        border-left: 1px rgba(0,0,0,0.1) solid;
+        border-top: 1px rgba(0,0,0,0.1) solid;
+    }
+
+    @media (min-width: 600px) {
+        & + & {
+            border-left: 1px rgba(0,0,0,0.1) solid;
+        }
     }
 `;
 const ProfileNavListItemLink = styled(Link)`
     display: block;
-    padding: 16px 32px;
+    padding: 16px;
     color: #1f1c1c;
     text-decoration: none;
 
@@ -86,6 +97,10 @@ const ProfileNavListItemLink = styled(Link)`
     }
     &:active {
         opacity: 0.6;
+    }
+
+    @media (min-width: 600px) {
+        padding: 16px 32px;
     }
 `;
 

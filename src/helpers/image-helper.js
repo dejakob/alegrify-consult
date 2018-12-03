@@ -1,4 +1,4 @@
-const FALLBACK_IMAGE = 'https://storage.googleapis.com/alegrify/avatar_5bf01477d3954538a87b2af3_1543086207405_1738609.0229842314$SIZE.png';
+const FALLBACK_IMAGE = 'https://storage.googleapis.com/alegrify/avatar_5bf01477d3954538a87b2af3_1543863540529_5413914.50605762$SIZE.jpg';
 
 /**
  * Get path for image for specific size
