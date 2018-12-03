@@ -1,4 +1,5 @@
 import React from 'react';
+import Immutable from 'immutable';
 import { createStore } from 'redux';
 import authReducer from './reducers/auth';
 import clientsReducer from './reducers/clients';
@@ -40,8 +41,8 @@ function syncToLocalStorage() {
  */
 function reducer(state = initialState, action) {
     return {
-        auth: authReducer(state.auth, action),
-        clients: clientsReducer(state.clients, action)
+        auth: authReducer(state.auth, action).toJS(),
+        clients: clientsReducer(state.clients, action).toJS()
     }
 }
 

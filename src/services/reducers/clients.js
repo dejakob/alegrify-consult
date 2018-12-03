@@ -1,55 +1,41 @@
 import { ACTIONS } from './config';
+import Immutable from 'immutable';
 const INITIAL_STATE =  {
     loading: false,
     clients: []
 };
 
-function clientsReducer(state = INITIAL_STATE, action) {
+function clientsReducer(s = INITIAL_STATE, action) {
+    const state = Immutable.fromJS(s);
+
     switch (action.type) {
         case ACTIONS.CLIENTS_LOAD_ALL:
-            return {
-                ...state,
-                loading: true
-            };
+            return state.set('loading', true);
 
         case ACTIONS.CLIENTS_LOAD_ALL_SUCCESS:
-            return {
-                ...state,
-                loading: false,
-                clients: action.clients
-            };
+            return state
+                .set('loading', true)
+                .update('clients', clients =>
+                    clients.mergeDeep(action.clients)
+                );
 
         case ACTIONS.CLIENTS_LOAD_ALL_FAILED:
-            return {
-                ...state,
-                loading: false
-            };
+            return state.set('loading', false);
 
         case ACTIONS.CLIENT_LOAD_ANSWERS:
-            return {
-                ...state,
-                loading: true
-            };
+            return state.set('loading', true);
         
         case ACTIONS.CLIENT_LOAD_ANSWERS_SUCCESS:
-            return {
-                ...state,
-                clients: [
-                    ...state.clients.map(client =>
-                        action.clientId === client._id ? {
-                            ...client,
-                            answers: action.answers
-                        } : client
-                    )
-                ],
-                loading: false
-            }
+            return state
+                .set('loading', true)
+                .update('clients', clients =>
+                    clients.mergeDeep(action.clients, [
+                        { _id: action.clientId, answers: action.answers }
+                    ])
+                );
 
         case ACTIONS.CLIENT_LOAD_ANSWERS_FAILED:
-            return {
-                ...state,
-                loading: false,
-            };
+            return state.set('loading', false);
 
         default:
             return state;
