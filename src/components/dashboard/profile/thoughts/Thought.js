@@ -32,7 +32,7 @@ class Thought extends Component {
                 </div>
 
                 <Link
-                    to={`/dashboard/${this.props.user._id}/thought/${this.props.id}`}
+                    to={`/dashboard/${this.props.user.user_name}/thought/${this.props.id}`}
                     title="Reflect thought"
                 >{moment(this.props.created_at).format('dddd, MMMM Do YYYY, h:mm:ss a')}</Link>
             </HistoricItem>

@@ -9,23 +9,21 @@ class Personality extends PureComponent {
         const answers = this.props.user.answers || [];
 
         return (
-            <React.Fragment>
-                <Grid
-                    reverse
+            <Grid
+                reverse
+            >
+                <Aside
+                    className="alegrify-grid__cell alegrify-grid__cell--4 alegrify-space--extra-large"
                 >
-                    <Aside
-                        className="alegrify-grid__cell alegrify-grid__cell--4 alegrify-space--extra-large"
-                    >
-                        <Section>
-                            Each user answers the questions in the language of his/her preference. <br /><br />
-                            When the user changes the answer of a question, the last chosen answer will be shown.
-                        </Section>
-                    </Aside>
-                    <PersonalityArticle
-                        answers={answers}
-                    />
-                </Grid>
-            </React.Fragment>
+                    <Section>
+                        Each user answers the questions in the language of his/her preference. <br /><br />
+                        When the user changes the answer of a question, the last chosen answer will be shown.
+                    </Section>
+                </Aside>
+                <PersonalityArticle
+                    answers={answers}
+                />
+            </Grid>
         )
     }
 }

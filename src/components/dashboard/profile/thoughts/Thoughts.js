@@ -34,6 +34,7 @@ function Thoughts(props) {
                         key={index}
                         user={props.user}
                         className="alegrify-space--extra-large"
+                        id={thought._id}
                         {...thought}
                     />
                 ))}
