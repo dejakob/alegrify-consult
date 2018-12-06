@@ -48,6 +48,20 @@ class Api {
             body: JSON.stringify(data)
         }).then(r => r.json());
     }
+
+    static patch(path, data) {
+        console.log('path', path, data);
+        return fetch(`//${API_HOST}${path}`, {
+            method: 'PATCH',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+                'authorization': `Bearer ${Api.token}` 
+            },
+            cache: 'no-cache',
+            body: JSON.stringify(data)
+        }).then(r => r.json()).catch(console.log)
+    }
 }
 
 export default Api

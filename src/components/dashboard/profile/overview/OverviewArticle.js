@@ -8,7 +8,9 @@ function OverviewArticle(props) {
         <Article
             className="alegrify-grid__cell alegrify-grid__cell--8"
         >
-            <OverviewNotes />
+            <OverviewNotes
+                user={props.user}
+            />
             <OverviewThoughts />
         </Article>
     );

@@ -47,38 +47,58 @@ class Dashboard extends Component {
         const user = this.props.clients.clients && this.props.clients.clients.find(user => user.user_name === userName);
         const userId = user && user._id;
 
-        if (userId && this.props.location.pathname.indexOf('/personality') > -1) {
-            try {
-                store.dispatch({ type: ACTIONS.CLIENT_LOAD_ANSWERS });
-                const answers = await Api.get(`/api/answers/${userId}`);
-                store.dispatch({
-                    type: ACTIONS.CLIENT_LOAD_ANSWERS_SUCCESS,
-                    clientId: userId,
-                    answers
-                });
+        if (userId) {
+            if (this.props.location.pathname.indexOf('/personality') > -1) {
+                try {
+                    store.dispatch({ type: ACTIONS.CLIENT_LOAD_ANSWERS });
+                    const answers = await Api.get(`/api/answers/${userId}`);
+                    store.dispatch({
+                        type: ACTIONS.CLIENT_LOAD_ANSWERS_SUCCESS,
+                        clientId: userId,
+                        answers
+                    });
+                }
+                catch (ex) {
+                    store.dispatch({
+                        type: ACTIONS.CLIENT_LOAD_ANSWERS_FAILED
+                    });
+                }
             }
-            catch (ex) {
-                store.dispatch({
-                    type: ACTIONS.CLIENT_LOAD_ANSWERS_FAILED
-                });
-            }
-        }
 
-        if (userId && this.props.location.pathname.indexOf('/thoughts') > -1) {
-            try {
-                store.dispatch({ type: ACTIONS.CLIENT_LOAD_THOUGHTS });
-                const thoughts = await Api.get(`/api/thoughts/${userId}`);
-                store.dispatch({
-                    type: ACTIONS.CLIENT_LOAD_THOUGHTS_SUCCESS,
-                    clientId: userId,
-                    thoughts
-                });
+            if (this.props.location.pathname.indexOf('/thoughts') > -1) {
+                try {
+                    store.dispatch({ type: ACTIONS.CLIENT_LOAD_THOUGHTS });
+                    const thoughts = await Api.get(`/api/thoughts/${userId}`);
+                    store.dispatch({
+                        type: ACTIONS.CLIENT_LOAD_THOUGHTS_SUCCESS,
+                        clientId: userId,
+                        thoughts
+                    });
+                }
+                catch (ex) {
+                    store.dispatch({
+                        type: ACTIONS.CLIENT_LOAD_THOUGHTS_FAILED
+                    });
+                }
             }
-            catch (ex) {
-                store.dispatch({
-                    type: ACTIONS.CLIENT_LOAD_THOUGHTS_FAILED
-                });
+
+            if (this.props.match.path === '/dashboard/:user?') {
+                try {
+                    store.dispatch({ type: ACTIONS.CLIENT_LOAD_NOTES_ABOUT });
+                    const notes = (await Api.get(`/api/consult/notes/${userId}`)).content;
+                    store.dispatch({
+                        type: ACTIONS.CLIENT_LOAD_NOTES_ABOUT_SUCCESS,
+                        clientId: userId,
+                        notes
+                    })
+                }
+                catch (ex) {
+                    store.dispatch({
+                        type: ACTIONS.CLIENT_LOAD_NOTES_ABOUT_FAILED
+                    })
+                }
             }
+
         }
     }
 

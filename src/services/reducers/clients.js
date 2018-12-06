@@ -65,6 +65,20 @@ function clientsReducer(s = INITIAL_STATE, action) {
         case ACTIONS.CLIENT_LOAD_THOUGHTS_FAILED:
             return state.set('loading', false);
 
+
+        /* Notes */
+        case ACTIONS.CLIENT_LOAD_NOTES_ABOUT:
+            return state.set('loading', true);
+
+        case ACTIONS.CLIENT_LOAD_NOTES_ABOUT_SUCCESS:
+            userIndex = state.get('clients').findIndex(client => client.get('_id') === action.clientId);
+            return state
+                .set('loading', false)
+                .setIn(['clients', userIndex, 'notes'], action.notes);
+
+        case ACTIONS.CLIENT_LOAD_NOTES_ABOUT_FAILED:
+            return state.set('loading', false);
+
         default:
             return state;
     }
