@@ -82,7 +82,7 @@ class Dashboard extends Component {
                 }
             }
 
-            if (this.props.match.path === '/dashboard/:user?') {
+            if (this.props.match.path === '/dashboard/:user?' && !user.notes) {
                 try {
                     store.dispatch({ type: ACTIONS.CLIENT_LOAD_NOTES_ABOUT });
                     const notes = (await Api.get(`/api/consult/notes/${userId}`)).content;

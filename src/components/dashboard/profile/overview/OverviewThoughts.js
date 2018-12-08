@@ -28,6 +28,7 @@ function OverviewThoughts(props) {
                     id="modules_lifeline"
                     value="lifeline"
                     className="alegrify-space--large"
+                    disabled
                 >
                     Lifeline (coming soon)
                 </Checkbox>
@@ -36,6 +37,7 @@ function OverviewThoughts(props) {
                     id="modules_activities"
                     value="activities"
                     className="alegrify-space--large"
+                    disabled
                 >
                     Activity Discovery (coming soon)
                 </Checkbox>
