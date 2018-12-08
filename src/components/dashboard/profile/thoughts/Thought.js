@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import { Dl, Dt, Dd, HistoricItem } from 'react-alegrify-ui';
+import { Button, Dl, Dt, Dd, HistoricItem } from 'react-alegrify-ui';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -15,7 +15,7 @@ class Thought extends Component {
                 date={this.props.created_at}
             >
                 <div 
-                    className="alegrify-space--large"
+                    className="alegrify-space--extra-large"
                 >
                     <Dl>
                         <Dt>How did I feel?</Dt>
@@ -28,13 +28,25 @@ class Thought extends Component {
                         <Dd>
                             {this.props.thought_event}
                         </Dd>
+
+                        <Dt>When was this written?</Dt>
+                        <Dd>
+                            {moment(this.props.created_at).format('dddd, MMMM Do YYYY, h:mm:ss a')}
+                        </Dd>
                     </Dl>
                 </div>
 
                 <Link
                     to={`/dashboard/${this.props.user.user_name}/thought/${this.props.id}`}
-                    title="Reflect thought"
-                >{moment(this.props.created_at).format('dddd, MMMM Do YYYY, h:mm:ss a')}</Link>
+                    title="See reflections"
+                >
+                    <Button
+                        secondary
+                        full
+                    >
+                        See reflections
+                    </Button>
+                </Link>
             </HistoricItem>
         )
     }

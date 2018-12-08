@@ -1,5 +1,7 @@
 import React from 'react';
 import { Grid, Article, Aside, Section } from 'react-alegrify-ui';
+import moment from 'moment';
+import { LineChart, Line } from 'recharts';
 import Thought from './Thought';
 
 const mockThoughts = [
@@ -14,6 +16,10 @@ const mockThoughts = [
 ]
 
 function Thoughts(props) {
+    const chartData = props.user.thoughts && props.user.thoughts.map(mood =>
+        ({ my_mood: Number(mood.my_mood), created_at: moment(mood.created_at).format('ddd, hA') })
+    );
+
     return (
         <Grid
             reverse
@@ -22,7 +28,9 @@ function Thoughts(props) {
                 className="alegrify-grid__cell alegrify-grid__cell--4 alegrify-space--extra-large"
             >
                 <Section>
-                    Show mood graph...
+                    <LineChart width={240} height={160} data={chartData}>
+                        <Line type="monotone" dataKey="my_mood" stroke="#8884d8" dot={false} />
+                    </LineChart>
                 </Section>
             </Aside>
             <Article
