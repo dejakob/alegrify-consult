@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import moment from 'moment';
-import { Button, Dl, Dt, Dd, HistoricItem } from 'react-alegrify-ui';
+import { Button, HistoricItem } from 'react-alegrify-ui';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import ThoughtDetail from './ThoughtDetail';
 
 /**
  * <Thought />
@@ -17,23 +17,9 @@ class Thought extends Component {
                 <div 
                     className="alegrify-space--extra-large"
                 >
-                    <Dl>
-                        <Dt>How did I feel?</Dt>
-                        <Dd>{this.props.my_mood} / 10</Dd>
-
-                        <Dt>What was I thinking?</Dt>
-                        <Dd>{this.props.thought}</Dd>
-
-                        <Dt>But what happened?</Dt>
-                        <Dd>
-                            {this.props.thought_event}
-                        </Dd>
-
-                        <Dt>When was this written?</Dt>
-                        <Dd>
-                            {moment(this.props.created_at).format('dddd, MMMM Do YYYY, h:mm:ss a')}
-                        </Dd>
-                    </Dl>
+                    <ThoughtDetail
+                        {...this.props}
+                    />
                 </div>
 
                 <Link

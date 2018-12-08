@@ -20,7 +20,7 @@ function Profile(props) {
 
             <Switch>
                 <Route path={`/dashboard/${props.user.user_name}/personality`} component={() => <Personality user={props.user} />} />
-                <Route path={`/dashboard/${props.user.user_name}/thought/:thoughtId`} component={({ match }) => <Thought user={props.user} thought={match.params.thought} />} />
+                <Route path={`/dashboard/${props.user.user_name}/thought/:thoughtId`} component={({ match }) => <Thought user={props.user} thoughtId={match.params.thoughtId} />} />
                 <Route path={`/dashboard/${props.user.user_name}/thoughts`} component={() => <Thoughts user={props.user} />} />
                 <Route path={`/dashboard/${props.user.user_name}`} component={() => <Overview user={props.user} />} />
             </Switch>

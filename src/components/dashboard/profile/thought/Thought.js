@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
-import ThoughtDetail from '../thoughts/Thought';
-import { Grid, Aside, Article } from 'react-alegrify-ui';
+import ThoughtDetail from '../thoughts/ThoughtDetail';
+import ThoughtReflection from './ThoughtReflection';
+import { Grid, Aside, Article, Section } from 'react-alegrify-ui';
 import { mapStateToProps } from '../../../../services/store';
 
 class Thought extends PureComponent {
@@ -12,22 +13,37 @@ class Thought extends PureComponent {
             return null;
         }
 
+        console.log('thought', thought);
+
         return (
-            <Grid
-                reverse    
-            >
+            <Grid>
                 <Aside
                     className="alegrify-grid__cell alegrify-grid__cell--4 alegrify-space--extra-large"
-                ></Aside>
+                >
+                    <Section
+                        className="alegrify-space--extra-large"
+                    >
+                        <ThoughtDetail
+                            id={thought._id}
+                            user={user}
+                            {...thought}
+                        />
+                    </Section>
+                </Aside>
                 <Article
                     className="alegrify-grid__cell alegrify-grid__cell--8 alegrify-space--extra-large"
                 >
-                    <ThoughtDetail
-                        id={thought._id}
-                        user={user}
-                        className="alegrify-space--extra-large"
-                        {...thought}
-                    />
+                    {thought.reflections.map((reflection, index) => (
+                        <Section
+                            key={index}
+                            className="alegrify-space--large"
+                        >
+                            <ThoughtReflection
+                                id={reflection._id}
+                                {...reflection}
+                            />
+                        </Section>
+                    ))}
                 </Article>
             </Grid>
         );
