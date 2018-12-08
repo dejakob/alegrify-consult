@@ -3,8 +3,6 @@ import moment from 'moment';
 import { Dl, Dt, Dd } from 'react-alegrify-ui';
 
 function ThoughtReflection(props) {
-    console.log('reflection', props);
-
     return (
         <Dl>
             <Dt>Reflection</Dt>
