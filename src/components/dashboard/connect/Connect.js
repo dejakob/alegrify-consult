@@ -4,6 +4,7 @@ import { SideNavAwareMain } from '../../ui/SideNav';
 import Api from '../../../helpers/api';
 import store, { ACTIONS } from '../../../services/store';
 import Mountains from '../../../images/mountains.jpg';
+import LargeSpinner from '../../ui/LargeSpinner';
 
 class Connect extends Component {
     constructor() {
@@ -24,8 +25,11 @@ class Connect extends Component {
 
         try {
             store.dispatch({ type: ACTIONS.CONNECT });
+            this.setState({ loading: true });
             await Api.post('/connect/to/client', { email: this.email });
-            store.dispatch({ type: ACTIONS.CONNECT_SUCCESS });
+            this.setState({ sent: true, loading: false });
+            setTimeout(() => { try { this.setState({ sent: false, sent: false }) } catch (ex) {} }, 600);
+            store.dispatch({ type: ACTIONS.CONNECT_SUCCESS, email: this.email });
         }
         catch (ex) {
             store.dispatch({ type: ACTIONS.CONNECT_FAILED });
@@ -49,7 +53,7 @@ function ConnectView(props) {
                     small
                     headerImage={Mountains}
                     title="Connect"
-                    footer={
+                    footer={ (!props.loading && !props.sent) && (
                         <Button
                             type="submit"
                             primary
@@ -57,23 +61,38 @@ function ConnectView(props) {
                         >
                             Connect
                         </Button>
+                        )
                     }
                 >
-                    <P>
-                        To connect with an Alegrify user, please provide their email address. The user needs to accept the request before you can access any data.
-                    </P>
-
-                    <Label
-                        htmlFor="connect_email"
-                    >
-                        Email address
-                    </Label>
-                    <ConnectViewInput
-                        handleEmailChange={props.handleEmailChange}
-                    />
+                    <ConnectionCardContent {...props} />
                 </Card>
             </form>
         </SideNavAwareMain>
+    );
+}
+
+function ConnectionCardContent(props) {
+    if (props.loading || props.sent) {
+        return (
+            <LargeSpinner success={props.sent} />
+        )
+    }
+
+    return (
+        <React.Fragment>
+            <P>
+                To connect with an Alegrify user, please provide their email address. The user needs to accept the request before you can access any data.
+            </P>
+
+            <Label
+                htmlFor="connect_email"
+            >
+                Email address
+            </Label>
+            <ConnectViewInput
+                handleEmailChange={props.handleEmailChange}
+            />
+        </React.Fragment>
     );
 }
 

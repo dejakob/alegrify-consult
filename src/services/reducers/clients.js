@@ -78,6 +78,16 @@ function clientsReducer(s = INITIAL_STATE, action) {
 
         case ACTIONS.CLIENT_LOAD_NOTES_ABOUT_FAILED:
             return state.set('loading', false);
+        
+
+        /* Add pending client */
+        case ACTIONS.CONNECT_SUCCESS:
+        console.log('success');
+            return state.update('clients',
+                clients => clients.push(
+                    Immutable.fromJS({ email: action.email, pending: true })
+                )
+            );
 
         default:
             return state;

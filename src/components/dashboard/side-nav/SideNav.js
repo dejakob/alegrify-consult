@@ -43,7 +43,15 @@ class SideNavComponent extends Component {
                     <SideNavHeader />
 
                     <SideNavList>
-                        {props.users.map((user, index) => (
+                        {props.users.map((user, index) => user.pending ? (
+                            <SideNavListItem
+                                key={index}
+                                to={`/dashboard/connect/pending/${user._id}`}
+                                title={user.email}
+                                avatar={user.avatar}
+                                subtitle={`Connection pending`}
+                            />
+                        ) : (
                             <SideNavListItem
                                 key={index}
                                 to={`/dashboard/${user.user_name}`}

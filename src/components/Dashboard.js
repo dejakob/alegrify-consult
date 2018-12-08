@@ -6,6 +6,7 @@ import SideNav from './dashboard/side-nav/SideNav';
 import SideNavTrigger from './dashboard/side-nav/SideNavTrigger';
 import Profile from './dashboard/profile/Profile';
 import Connect from './dashboard/connect/Connect';
+import Pending from './dashboard/connect/pending/Pending';
 
 import Api from '../helpers/api';
 import store, { mapStateToProps, ACTIONS } from '../services/store';
@@ -122,7 +123,8 @@ class Dashboard extends Component {
                     />
                 ) : null}
 
-                <Route path="/dashboard/connect" component={Connect} />
+                <Route path="/dashboard/connect/pending/:connectionId" component={Pending} />
+                <Route path="/dashboard/connect" component={Connect} exact />
             </React.Fragment>
         );
     }
