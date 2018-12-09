@@ -33,6 +33,12 @@ class Thought extends PureComponent {
                 <Article
                     className="alegrify-grid__cell alegrify-grid__cell--8 alegrify-space--extra-large"
                 >
+                    {thought.reflections.length === 0 ? (
+                        <Section>
+                            No reflections for this thought yet
+                        </Section>
+                    ) : null}
+
                     {thought.reflections.map((reflection, index) => (
                         <Section
                             key={index}
