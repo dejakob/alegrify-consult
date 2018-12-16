@@ -12,9 +12,7 @@ class Thought extends PureComponent {
         if (!thought) {
             return null;
         }
-
-        console.log('thought', thought);
-
+        
         return (
             <Grid>
                 <Aside

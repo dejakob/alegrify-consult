@@ -50,7 +50,6 @@ class Api {
     }
 
     static patch(path, data) {
-        console.log('path', path, data);
         return fetch(`//${API_HOST}${path}`, {
             method: 'PATCH',
             mode: 'cors',
@@ -60,7 +59,7 @@ class Api {
             },
             cache: 'no-cache',
             body: JSON.stringify(data)
-        }).then(r => r.json()).catch(console.log)
+        }).then(r => r.json())
     }
 }
 
