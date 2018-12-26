@@ -11,6 +11,10 @@ const FALLBACK_IMAGE = 'https://storage.googleapis.com/alegrify/avatar_5bf01477d
 function loadImage(path, size) {
     let height, width;
 
+    if (path === null) {
+        path = FALLBACK_IMAGE;
+    }
+
     if (!size) {
         return path;
     }

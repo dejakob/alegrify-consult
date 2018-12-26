@@ -98,9 +98,9 @@ class Welcome extends Component {
                                 <Label
                                     error
                                     htmlFor="login_user_name"
-                                    className={this.props.auth.validationErrors.email ? 'alegrify-space--large' : ''}
+                                    className={this.props.auth.validationErrors && this.props.auth.validationErrors.email ? 'alegrify-space--large' : ''}
                                 >
-                                    {this.props.auth.validationErrors.email}
+                                    {this.props.auth.validationErrors && this.props.auth.validationErrors.email}
                                 </Label>
     
                                 <Label
@@ -121,9 +121,9 @@ class Welcome extends Component {
                                 <Label
                                     error
                                     htmlFor="login_password"
-                                    className={this.props.auth.validationErrors.password ? 'alegrify-space--large' : ''}
+                                    className={this.props.auth.validationErrors && this.props.auth.validationErrors.password ? 'alegrify-space--large' : ''}
                                 >
-                                    {this.props.auth.validationErrors.password}
+                                    {this.props.auth.validationErrors && this.props.auth.validationErrors.password}
                                 </Label>
     
                                 <Button
@@ -139,7 +139,7 @@ class Welcome extends Component {
                                     error
                                     htmlFor="login_user_name"
                                 >
-                                    {this.props.auth.validationErrors.is_consult}
+                                    {this.props.auth.validationErrors && this.props.auth.validationErrors.is_consult}
                                 </Label>
                             </form>
                         </Section>
