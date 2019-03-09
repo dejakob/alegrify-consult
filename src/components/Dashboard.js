@@ -10,6 +10,7 @@ import Pending from './dashboard/connect/pending/Pending';
 
 import Api from '../helpers/api';
 import store, { mapStateToProps, ACTIONS } from '../services/store';
+import Landing from './dashboard/landing/Landing';
 
 const StickyHeader = styled.header`
     position: sticky;
@@ -117,14 +118,17 @@ class Dashboard extends PureComponent {
                     users={this.props.clients.clients || []}
                 />
 
-                {user && user.user_name ? (
-                    <Profile
-                        user={user}
-                    />
-                ) : null}
-
                 <Route path="/dashboard/connect/pending/:connectionId" component={Pending} />
                 <Route path="/dashboard/connect" component={Connect} exact />
+                <Route path="/dashboard/*" component={() =>
+                    user && user.user_name ? (
+                        <Profile
+                            user={user}
+                        />
+                    ) : (
+                        <Landing />
+                    )
+                } />
             </React.Fragment>
         );
     }
