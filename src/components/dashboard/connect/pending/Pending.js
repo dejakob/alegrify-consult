@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Redirect } from 'react-router-dom';
 import { Section } from 'react-alegrify-ui';
 import { SideNavAwareMain } from '../../../ui/SideNav';
 import { mapStateToProps } from '../../../../services/store';
@@ -30,6 +31,12 @@ function Pending(props) {
     const { connectionId } = props.match.params;
     const pendingConnection = props.clients.clients
         .find(client => client._id === connectionId);
+
+    if (!pendingConnection) {
+        return (
+            <Redirect to="/dashboard" />
+        )
+    }
 
     return (
         <SideNavAwareMain>

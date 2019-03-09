@@ -4,17 +4,6 @@ import moment from 'moment';
 import { LineChart, Line } from 'recharts';
 import Thought from './Thought';
 
-const mockThoughts = [
-    {
-        id: 'test_id',
-        thought: 'Just a thought',
-        thought_event: 'Because of this',
-        my_mood: 6,
-        created_at: '2018-07-03T18:30:00',
-        reflections: []
-    }
-]
-
 function Thoughts(props) {
     const chartData = props.user.thoughts && props.user.thoughts.map(mood =>
         ({ my_mood: Number(mood.my_mood), created_at: moment(mood.created_at).format('ddd, hA') })

@@ -1,5 +1,4 @@
 import React from 'react';
-import Immutable from 'immutable';
 import { createStore } from 'redux';
 import authReducer from './reducers/auth';
 import clientsReducer from './reducers/clients';

@@ -59,7 +59,20 @@ class Api {
             },
             cache: 'no-cache',
             body: JSON.stringify(data)
-        }).then(r => r.json())
+        }).then(r => r.json());
+    }
+
+    static delete(path, data) {
+        return fetch(`//${API_HOST}${path}`, {
+            method: 'DELETE',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+                'authorization': `Bearer ${Api.token}` 
+            },
+            cache: 'no-cache',
+            body: JSON.stringify(data)
+        }).then(r => r.json());
     }
 }
 

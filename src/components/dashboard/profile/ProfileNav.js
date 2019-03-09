@@ -33,6 +33,13 @@ function ProfileNavComponent(props) {
                         Personality
                     </ProfileNavListItemLink>
                 </ProfileNavListItem>
+                <ProfileNavListItem>
+                    <ProfileNavListItemLink
+                        to={`/dashboard/${props.user.user_name}/settings`}
+                    >
+                        Settings
+                    </ProfileNavListItemLink>
+                </ProfileNavListItem>
             </ProfileNavList>
         </ProfileNav>
     );

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -33,7 +33,7 @@ const StickyHeader = styled.header`
     }
 `;
 
-class Dashboard extends Component {
+class Dashboard extends PureComponent {
     async componentWillMount() {
         try {
             store.dispatch({ type: ACTIONS.CLIENTS_LOAD_ALL });
@@ -117,7 +117,7 @@ class Dashboard extends Component {
                     users={this.props.clients.clients || []}
                 />
 
-                {user ? (
+                {user && user.user_name ? (
                     <Profile
                         user={user}
                     />

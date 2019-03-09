@@ -88,6 +88,18 @@ function clientsReducer(s = INITIAL_STATE, action) {
                 )
             );
 
+        case ACTIONS.DISCONNECT:
+            return state.set('loading', true);
+
+        case ACTIONS.DISCONNECT_SUCCESS:
+            return state.update('clients',
+                clients => clients
+                    .filter(client => client.get('_id') !== action.clientId)
+            );
+
+        case ACTIONS.DISCONNECT_FAILED:
+            return state.set('loading', true);
+
         default:
             return state;
     }
