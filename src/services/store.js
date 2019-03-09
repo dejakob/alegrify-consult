@@ -6,30 +6,30 @@ import { ACTIONS } from './reducers/config';
 
 let initialState = {};
 
-// Get initial state from localStorage
+// Get initial state from sessionStorage
 if (
     typeof window !== 'undefined' &&
-    window.localStorage &&
-    typeof window.localStorage.getItem === 'function'
+    window.sessionStorage &&
+    typeof window.sessionStorage.getItem === 'function'
 ) {
-    initialState = JSON.parse(window.localStorage.getItem('app_state') || '{}');
+    initialState = JSON.parse(window.sessionStorage.getItem('app_state') || '{}');
 }
 
 const store = createStore(reducer);
-store.subscribe(syncToLocalStorage);
+store.subscribe(syncTosessionStorage);
 
 /**
- * Sync all changes into localStorage to make store persistent
+ * Sync all changes into sessionStorage to make store persistent
  */
-function syncToLocalStorage() {
+function syncTosessionStorage() {
     const state = store.getState();
 
     if (
         typeof window !== 'undefined' &&
-        window.localStorage &&
-        typeof window.localStorage.setItem === 'function'
+        window.sessionStorage &&
+        typeof window.sessionStorage.setItem === 'function'
     ) {
-        window.localStorage.setItem('app_state', JSON.stringify(state));
+        window.sessionStorage.setItem('app_state', JSON.stringify(state));
     }
 }
 
