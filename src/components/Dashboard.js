@@ -118,17 +118,15 @@ class Dashboard extends PureComponent {
                     users={this.props.clients.clients || []}
                 />
 
+                {user && user.user_name ? (
+                    <Profile
+                        user={user}
+                    />
+                ) : null}
+
                 <Route path="/dashboard/connect/pending/:connectionId" component={Pending} />
                 <Route path="/dashboard/connect" component={Connect} exact />
-                <Route path="/dashboard" component={() =>
-                    user && user.user_name ? (
-                        <Profile
-                            user={user}
-                        />
-                    ) : (
-                        <Landing />
-                    )
-                } exact />
+                <Route path="/dashboard" component={Landing} exact />
             </React.Fragment>
         );
     }
