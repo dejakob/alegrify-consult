@@ -120,7 +120,7 @@ class Dashboard extends PureComponent {
 
                 <Route path="/dashboard/connect/pending/:connectionId" component={Pending} />
                 <Route path="/dashboard/connect" component={Connect} exact />
-                <Route path="/dashboard/*" component={() =>
+                <Route path="/dashboard" component={() =>
                     user && user.user_name ? (
                         <Profile
                             user={user}
@@ -128,7 +128,7 @@ class Dashboard extends PureComponent {
                     ) : (
                         <Landing />
                     )
-                } />
+                } exact />
             </React.Fragment>
         );
     }
