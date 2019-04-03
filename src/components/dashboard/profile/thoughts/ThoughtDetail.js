@@ -6,7 +6,7 @@ function ThoughtDetail(props) {
     return (
         <Dl>
             <Dt>How did I feel?</Dt>
-            <Dd>{props.my_mood} / 10</Dd>
+            <Dd>{props.my_mood * 10}% {(props.my_mood_type || '').toLowerCase()}</Dd>
 
             <Dt>What was I thinking?</Dt>
             <Dd>{props.thought}</Dd>

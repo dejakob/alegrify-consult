@@ -26,7 +26,9 @@ function Thoughts(props) {
                 user={props.user}
                 className="alegrify-grid__cell alegrify-grid__cell--8"
             >
-                {props.user.thoughts && props.user.thoughts.map((thought, index) => (
+                {props.user.thoughts && props.user.thoughts
+                    .sort((thoughtA, thoughtB) => new Date(thoughtB.created_at).getTime() - new Date(thoughtA.created_at).getTime())
+                    .map((thought, index) => (
                     <Thought
                         key={index}
                         user={props.user}
