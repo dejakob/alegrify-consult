@@ -28,7 +28,7 @@ class Connect extends Component {
             this.setState({ loading: true });
             await Api.post('/api/connect/to/client', { email: this.email });
             this.setState({ sent: true, loading: false });
-            setTimeout(() => { try { this.setState({ sent: false, sent: false }) } catch (ex) {} }, 600);
+            setTimeout(() => { try { this.setState({ sent: false, loading: false }) } catch (ex) {} }, 600);
             store.dispatch({ type: ACTIONS.CONNECT_SUCCESS, email: this.email });
         }
         catch (ex) {
