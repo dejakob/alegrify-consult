@@ -7,7 +7,7 @@ npm i dejakob/alegrify-ui
 npm i dejakob/react-alegrify-ui
 npm run build
 version=`date '+%Y_%m_%d__%H_%M_%S'`;
-cp -R ./build ./release-$version
-cp -R ./build/* /var/www/html && chown -R www-data:www-data /var/www/html
+sudo cp -R ./build ./release-$version
+sudo cp -R ./build/* /var/www/html && sudo chown -R www-data:www-data /var/www/html
 rm -rf ./build
-nginx -s reload
+/etc/init.d/nginx restart
