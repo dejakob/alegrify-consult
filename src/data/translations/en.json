@@ -1,0 +1,11 @@
+{
+    "SIGN_UP": {
+        "WELCOME": {
+            "TITLE": "Hi there!",
+            "SUBTITLE": "Tell us your name",
+            "NAME_INPUT_PLACEHOLDER": "Fill in your name here",
+            "CTA": "Go further",
+            "NOT_FOUND_LINK": "I'm not on the list"
+        }
+    }
+}

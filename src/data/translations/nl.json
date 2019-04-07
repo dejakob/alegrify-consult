@@ -1,0 +1,11 @@
+{
+    "SIGN_UP": {
+        "WELCOME": {
+            "TITLE": "Hallo!",
+            "SUBTITLE": "Mogen we even je naam weten?",
+            "NAME_INPUT_PLACEHOLDER": "Vul hier even jouw naam in",
+            "CTA": "Verder gaan",
+            "NOT_FOUND_LINK": "Ik zie mezelf niet in de lijst"
+        }
+    }
+}
