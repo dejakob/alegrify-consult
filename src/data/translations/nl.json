@@ -8,7 +8,8 @@
             "NOT_FOUND_LINK": "Ik zie mezelf niet in de lijst"
         },
         "VERIFY": {
-            "TITLE": "Hello {{ firstName }}!",
+            "TITLE": "Hallo {{ firstName }}!",
+            "INTRO": "Wat leuk dat je Alegrify Consult wilt proberen! Controleer je even of al je gegevens kloppen?",
             "FIRST_NAME_LABEL": "Voornaam",
             "LAST_NAME_LABEL": "Familienaam",
             "FULL_NAME_LABEL": "Volledige naam",
@@ -25,7 +26,9 @@
             "VERIFY_EMAIL_EXPLANATION": "Met dit e-mailadres zul je jouw account kunnen verifiëren",
             "VERIFY_EMAIL_EXPLANATION_ALT": "Geen e-mailadres gevonden. Verificatie zal manueel gebeuren",
             "PHONE_LABEL": "Telefoonnummer",
-            "LICENSE_NUMBER": "Licentienummer"
+            "LICENSE_NUMBER": "Licentienummer",
+            "ANYTHING_ELSE": "Nog iets toe te voegen?",
+            "CTA": "Het ziet er goed uit"
         },
         "LANGUAGES": {
             "DUTCH": "Nederlands",

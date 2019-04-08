@@ -61,35 +61,16 @@ function Verify(props) {
 
     return (
         <React.Fragment>
-            <H1>
-                <div
-                    style={{ textAlign: 'center' }}
-                >
-                    {translate('SIGN_UP.VERIFY.TITLE', { firstName })}
-                </div>
-            </H1>
-
             <Grid>
                 <GridCell four>
                     <Aside>
                         <Section>
-                            <Grid
-                                middle
-                                all
-                            >
-                                <GridCell>                                
-                                    <Avatar
-                                        height="100"
-                                        width="100"
-                                        src="https://storage.googleapis.com/alegrify/avatar_5bf01477d3954538a87b2af3_1543863540529_5413914.50605762320x320.jpg"
-                                    />
-                                </GridCell>
-                                <GridCell> 
-                                    <Button>
-                                        {translate('SIGN_UP.VERIFY.UPLOAD_PICTURE')}
-                                    </Button>
-                                </GridCell>
-                            </Grid>
+                            <H1 style={{ margin: 0 }}>
+                                {translate('SIGN_UP.VERIFY.TITLE', { firstName })}
+                            </H1>
+                            <P>
+                                {translate('SIGN_UP.VERIFY.INTRO')}
+                            </P>
                         </Section>
                     </Aside>
                 </GridCell>
@@ -205,7 +186,6 @@ function VerifyForm(props) {
                     name="licenseNumber"
                     value={props.data.licenseNumber}
                     full
-                    className="alegrify-space--large"
                     disabled
                 />
             </Section>
@@ -247,7 +227,9 @@ function VerifyForm(props) {
                     ))
                 }
             </Section>
-            <Section>
+            <Section
+                className="alegrify-space--large"
+            >
                 <H2 style={{ marginTop: 0 }}>
                     {translate('SIGN_UP.VERIFY.CONTACT_DETAILS')}
                 </H2>
@@ -307,6 +289,30 @@ function VerifyForm(props) {
                     />
                 ) : null}
             </Section>
+
+            <Section
+                className="alegrify-space--large"
+            >
+                <H2 style={{ marginTop: 0 }}>
+                    {translate('SIGN_UP.VERIFY.ANYTHING_ELSE')}
+                </H2>
+
+                <Input
+                    full
+                    multiline
+                    value={props.data.extraInfo}
+                    onValueChange={value => props.onFieldChange('extraInfo', value)}
+                />
+            </Section>
+
+            <Section>
+                <Button
+                    primary
+                    type="submit"
+                >
+                    {translate('SIGN_UP.VERIFY.CTA')}
+                </Button>
+            </Section>
         </form>
     );
 }
@@ -316,10 +322,11 @@ function psychoPredictionToUsableData(input) {
         firstName: input.name.split(' ')[0],
         lastName: input.name.replace(`${input.name.split(' ')[0]} `, ''),
         fullName: input.name,
-        languages: input.language || [ 'Engels' ].map(lang => LANGUAGES_MAP[lang] || DEFAULT_LANGUAGE),
+        languages: (input.language || [ 'Engels' ]).map(lang => LANGUAGES_MAP[lang] || DEFAULT_LANGUAGE),
         gender: GENDER_MAP[input.gender] || DEFAULT_GENDER,
         aboutMe: input.extraInfo,
         licenseNumber: input.licenseNumber,
+        extraInfo: (input.extraInfo || '').trim().replace(/\t/gi, '').replace(/[ ]+/gi, ' '),
         emails: (input.addresses || []).map(a => a.email).filter(a => !!a && a.length),
         phones: (input.addresses || [])
             .map(a => (a.phone || '').replace(/[/\\_\?\.\:\;\* a-zA-Z]+/gi, ''))
