@@ -10,6 +10,8 @@ function Welcome(props) {
     const [ selectedName, setSelectedName ] = useState(null);
 
     useEffect(() => {
+
+        // Todo: debounce
         async function fetchAutocomplete() {
             if (typedName.length >= 3) {
                 setAutocompleteResults(
@@ -50,13 +52,17 @@ function Welcome(props) {
                         }}
                     >
                         <Section>
-                            <Label>
+                            <Label
+                                htmlFor="name"
+                            >
                                 {translate('SIGN_UP.WELCOME.SUBTITLE')}
                             </Label>
                             <Input
                                 full
                                 placeholder={translate('SIGN_UP.WELCOME.NAME_INPUT_PLACEHOLDER')}
                                 className="alegrify-space--large"
+                                name="name"
+                                id="name"
                                 value={typedName}
                                 onValueChange={setTypedName}
                             />

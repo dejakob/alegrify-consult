@@ -6,6 +6,35 @@
             "NAME_INPUT_PLACEHOLDER": "Fill in your name here",
             "CTA": "Go further",
             "NOT_FOUND_LINK": "I'm not on the list"
+        },
+        "VERIFY": {
+            "TITLE": "Hallo {{ firstName }}!",
+            "FIRST_NAME_LABEL": "First name",
+            "LAST_NAME_LABEL": "Last name",
+            "FULL_NAME_LABEL": "Full name",
+            "GENDER_LABEL": "Gender",
+            "GENDER_MALE": "Male",
+            "GENDER_FEMALE": "Female",
+            "GENDER_OTHER": "Other",
+            "LANGUAGE_LABEL": "Languages",
+            "BASIC": "Basic information",
+            "SKILLS": "Skills",
+            "CONTACT_DETAILS": "Contact details",
+            "UPLOAD_PICTURE": "Change picture",
+            "EMAIL_LABEL": "Email",
+            "VERIFY_EMAIL_EXPLANATION": "You will need to verify your account with the selected email",
+            "VERIFY_EMAIL_EXPLANATION_ALT": "Because we didn't find an email address, verification will happen manually",
+            "PHONE_LABEL": "Phone",
+            "LICENSE_NUMBER": "License number"
+        },
+        "LANGUAGES": {
+            "DUTCH": "Dutch",
+            "ENGLISH": "English",
+            "GERMAN": "German",
+            "FRENCH": "French",
+            "FINNISH": "Finnish",
+            "SPANISH": "Spanish",
+            "PORTUGUESE": "Portuguese"
         }
     }
 }

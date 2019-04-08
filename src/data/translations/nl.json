@@ -6,6 +6,35 @@
             "NAME_INPUT_PLACEHOLDER": "Vul hier even jouw naam in",
             "CTA": "Verder gaan",
             "NOT_FOUND_LINK": "Ik zie mezelf niet in de lijst"
+        },
+        "VERIFY": {
+            "TITLE": "Hello {{ firstName }}!",
+            "FIRST_NAME_LABEL": "Voornaam",
+            "LAST_NAME_LABEL": "Familienaam",
+            "FULL_NAME_LABEL": "Volledige naam",
+            "GENDER_LABEL": "Geslacht",
+            "GENDER_MALE": "Man",
+            "GENDER_FEMALE": "Vrouw",
+            "GENDER_OTHER": "Anders",
+            "LANGUAGE_LABEL": "Talen",
+            "BASIC": "Basis informatie",
+            "SKILLS": "Skills",
+            "CONTACT_DETAILS": "Contact details",
+            "UPLOAD_PICTURE": "Wijzig foto",
+            "EMAIL_LABEL": "E-mailadres",
+            "VERIFY_EMAIL_EXPLANATION": "Met dit e-mailadres zul je jouw account kunnen verifiëren",
+            "VERIFY_EMAIL_EXPLANATION_ALT": "Geen e-mailadres gevonden. Verificatie zal manueel gebeuren",
+            "PHONE_LABEL": "Telefoonnummer",
+            "LICENSE_NUMBER": "Licentienummer"
+        },
+        "LANGUAGES": {
+            "DUTCH": "Nederlands",
+            "ENGLISH": "Engels",
+            "GERMAN": "Duits",
+            "FRENCH": "Frans",
+            "FINNISH": "Fins",
+            "SPANISH": "Spaans",
+            "PORTUGUESE": "Portugees"
         }
     }
 }
