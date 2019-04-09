@@ -118,6 +118,8 @@ function Verify(props) {
                             <Button
                                 primary
                                 full
+                                type="button"
+                                onClick={() => window.location.href = 'https://alegrify.com'}
                             >
                                 {translate('SIGN_UP.VERIFY.COMPLETED.CTA')}
                             </Button>
