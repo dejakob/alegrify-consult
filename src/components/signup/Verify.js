@@ -39,20 +39,50 @@ function Verify(props) {
     const [ prediction, setPrediction ] = useState({
         pristine: true,
         firstName,
-        lastName: name.replace(`${firstName} `, '')
+        lastName: name.replace(`${firstName} `, ''),
+        languages: []
     });
+    const [ validationErrors, setValidationErrors ] = useState({});
+    const [ isSubmitting, setIsSubmitting ] = useState(false);
 
     async function fetchAutocomplete() {
         try {
             if (prediction.pristine) {
-                const predictionData = await Api.get(`/api/auth/consult-predict?q=${name}`)
+                const predictionData = await Api.get(`/api/auth/consult-predict?q=${name}`);
+
+                if (predictionData.licenseNumber) {
+                    predictionData.hasVerifiedLicenseNumber = true;
+                }
+
                 setPrediction(psychoPredictionToUsableData(predictionData));
             }
         }
         catch (ex) {}
     }
 
+    async function handleSubmit(e) {
+        e.preventDefault();
+
+        try {
+            setIsSubmitting(true);
+            const result = await Api.post('/api/auth/consult-prepare', prediction);
+
+            if (result.success) {
+
+            }
+            else {
+                setValidationErrors(result);
+            }
+            setIsSubmitting(false);
+        }
+        catch (ex) {
+
+        }
+    }
+
     function changeField(fieldName, fieldValue) {
+        delete validationErrors[fieldName];
+        setValidationErrors({ ...validationErrors });
         setPrediction({ ...prediction, [fieldName]: fieldValue });
     }
 
@@ -84,7 +114,10 @@ function Verify(props) {
                     >
                         <VerifyForm
                             data={prediction}
+                            validationErrors={validationErrors}
                             onFieldChange={changeField}
+                            onSubmit={handleSubmit}
+                            isSubmitting={isSubmitting}
                         />
                     </Article>
                 </GridCell>
@@ -94,23 +127,10 @@ function Verify(props) {
 }
 
 function VerifyForm(props) {
-    async function handleSubmit(e) {
-        e.preventDefault();
-
-        try {
-            console.log('data', props.data);
-            const result = await Api.post('/api/auth/consult-prepare', props.data);
-            console.log('result', result);
-        }
-        catch (ex) {
-
-        }
-    }
-
     return (
         <form
             method="post"
-            onSubmit={handleSubmit}
+            onSubmit={props.onSubmit}
         >
             <Section
                 className="alegrify-space--large"
@@ -127,8 +147,17 @@ function VerifyForm(props) {
                     value={props.data.firstName}
                     onValueChange={value => props.onFieldChange('firstName', value)}
                     full
-                    className="alegrify-space--large"
+                    className={props.validationErrors['firstName'] ? '' : 'alegrify-space--large'}
                 />
+                {props.validationErrors['firstName'] ? (
+                    <Label
+                        error
+                        htmlFor="firstName"
+                        className="alegrify-space--large"
+                    >
+                        {translate('SIGN_UP.VERIFY.VALIDATION_ERRORS.FIRSTNAME')}
+                    </Label>
+                ) : null}
 
                 <Label
                     htmlFor="lastName"
@@ -141,8 +170,17 @@ function VerifyForm(props) {
                     value={props.data.lastName}
                     onValueChange={value => props.onFieldChange('lastName', value)}
                     full
-                    className="alegrify-space--large"
+                    className={props.validationErrors['lastName'] ? '' : 'alegrify-space--large'}
                 />
+                {props.validationErrors['lastName'] ? (
+                    <Label
+                        error
+                        htmlFor="lastName"
+                        className="alegrify-space--large"
+                    >
+                        {translate('SIGN_UP.VERIFY.VALIDATION_ERRORS.LASTNAME')}
+                    </Label>
+                ) : null}
 
                 <Label
                     htmlFor="fullName"
@@ -168,7 +206,7 @@ function VerifyForm(props) {
                     name="gender"
                     value={props.data.gender}
                     onValueChange={value => props.onFieldChange('gender', value)}
-                    className="alegrify-space--large"
+                    className={props.validationErrors['gender'] ? '' : 'alegrify-space--large'}
                 >
                     <DropdownItem
                         id="gender_male"
@@ -192,6 +230,15 @@ function VerifyForm(props) {
                         {translate('SIGN_UP.VERIFY.GENDER_OTHER')}
                     </DropdownItem>
                 </Dropdown>
+                {props.validationErrors['gender'] ? (
+                    <Label
+                        error
+                        htmlFor="gender"
+                        className="alegrify-space--large"
+                    >
+                        {translate('SIGN_UP.VERIFY.VALIDATION_ERRORS.GENDER')}
+                    </Label>
+                ) : null}
 
                 <Label
                     htmlFor="licenseNumber"
@@ -203,7 +250,7 @@ function VerifyForm(props) {
                     name="licenseNumber"
                     value={props.data.licenseNumber}
                     full
-                    disabled
+                    disabled={props.data.hasVerifiedLicenseNumber}
                 />
             </Section>
             <Section
@@ -216,6 +263,15 @@ function VerifyForm(props) {
                 >
                     {translate('SIGN_UP.VERIFY.LANGUAGE_LABEL')}
                 </Label>
+                {props.validationErrors['languages'] ? (
+                    <Label
+                        error
+                        htmlFor="language"
+                        className="alegrify-space--large"
+                    >
+                        {translate('SIGN_UP.VERIFY.VALIDATION_ERRORS.LANGUAGES')}
+                    </Label>
+                ) : null}
                 {Object
                     .keys(LANGUAGES_MAP)
                     .map(key => LANGUAGES_MAP[key])
@@ -272,9 +328,18 @@ function VerifyForm(props) {
                         id="email"
                         name="email"
                         full
-                        className="alegrify-space--large"
+                        className={props.validationErrors['email'] ? '' : 'alegrify-space--large'}
                         onValueChange={email => props.onFieldChange('email', email)}
                     />
+                ) : null}
+                {props.validationErrors['email'] ? (
+                    <Label
+                        error
+                        htmlFor="email"
+                        className="alegrify-space--large"
+                    >
+                        {translate('SIGN_UP.VERIFY.VALIDATION_ERRORS.EMAIL')}
+                    </Label>
                 ) : null}
 
                 <P>
@@ -305,9 +370,18 @@ function VerifyForm(props) {
                         id="phone"
                         name="phone"
                         full
-                        className="alegrify-space--large"
+                        className={props.validationErrors['phone'] ? '' : 'alegrify-space--large'}
                         onValueChange={phone => props.onFieldChange('phone', phone)}
                     />
+                ) : null}
+                {props.validationErrors['phone'] ? (
+                    <Label
+                        error
+                        htmlFor="phone"
+                        className="alegrify-space--large"
+                    >
+                        {translate('SIGN_UP.VERIFY.VALIDATION_ERRORS.PHONE')}
+                    </Label>
                 ) : null}
             </Section>
 
@@ -330,6 +404,7 @@ function VerifyForm(props) {
                 <Button
                     primary
                     type="submit"
+                    disabled={props.isSubmitting}
                 >
                     {translate('SIGN_UP.VERIFY.CTA')}
                 </Button>

@@ -31,7 +31,15 @@
             "PHONE_LABEL": "Telefoonnummer",
             "LICENSE_NUMBER": "Licentienummer",
             "ANYTHING_ELSE": "Nog iets toe te voegen?",
-            "CTA": "Het ziet er goed uit"
+            "CTA": "Het ziet er goed uit",
+            "VALIDATION_ERRORS": {
+                "FIRSTNAME": "Vul aub je voornaam in",
+                "LASTNAME": "Vul aub je familienaam in",
+                "GENDER": "Vul aub je geslacht in",
+                "LANGUAGES": "Kies minstens één taal",
+                "EMAIL": "Vul aub je e-mailadres in",
+                "PHONE": "Vul aub je telefoonnummer in"
+            }
         },
         "CONFIRM": {
             "USER_NAME": "Gebruikersnaam",

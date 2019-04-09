@@ -31,7 +31,15 @@
             "PHONE_LABEL": "Phone",
             "LICENSE_NUMBER": "License number",
             "ANYTHING_ELSE": "Anything else",
-            "CTA": "All seems good"
+            "CTA": "All seems good",
+            "VALIDATION_ERRORS": {
+                "FIRSTNAME": "Please fill in your first name",
+                "LASTNAME": "Please fill in your last name",
+                "GENDER": "Please fill in your gender",
+                "LANGUAGES": "Please select at least one language",
+                "EMAIL": "Please fill in your email",
+                "PHONE": "Please fill in your phone"
+            }
         },
         "CONFIRM": {
             "USER_NAME": "Username",
