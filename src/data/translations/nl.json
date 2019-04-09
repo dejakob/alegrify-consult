@@ -39,6 +39,11 @@
                 "LANGUAGES": "Kies minstens één taal",
                 "EMAIL": "Vul aub je e-mailadres in",
                 "PHONE": "Vul aub je telefoonnummer in"
+            },
+            "COMPLETED": {
+                "NEEDS_VERIFICATION": "Bedankt om de tijd te nemen om alles in te vullen. We verifiëren nog even alles en sturen je nog een mailtje.",
+                "NO_VERIFICATION": "Bedankt om de tijd te nemen om alles in te vullen. Binnen enkele ogenblikken ontvang je een email.",
+                "CTA": "Sluit deze pagina"
             }
         },
         "CONFIRM": {

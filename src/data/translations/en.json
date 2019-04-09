@@ -39,6 +39,11 @@
                 "LANGUAGES": "Please select at least one language",
                 "EMAIL": "Please fill in your email",
                 "PHONE": "Please fill in your phone"
+            },
+            "COMPLETED": {
+                "NEEDS_VERIFICATION": "Thank you for taking to fill in the form. We will verify all the details and get back to you via email.",
+                "NO_VERIFICATION": "Thank you for taking to fill in the form. You will receive an email soon.",
+                "CTA": "Close this window"
             }
         },
         "CONFIRM": {

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Redirect, withRouter } from 'react-router-dom';
 import Api from '../../helpers/api';
 import { Button, H1, Article, Aside, Grid, GridCell, Section, Label, Input, Dropdown, DropdownItem, Checkbox, Radio, P } from 'react-alegrify-ui';
-import Avatar from '../ui/Avatar';
 import { translate } from '../../helpers/language';
 import { H2 } from 'react-alegrify-ui/build/typography';
+import LargeSpinner from '../ui/LargeSpinner';
 
 // Todo blocking: check if is not already a user
 
@@ -44,6 +44,8 @@ function Verify(props) {
     });
     const [ validationErrors, setValidationErrors ] = useState({});
     const [ isSubmitting, setIsSubmitting ] = useState(false);
+    const [ hasStepCompleted, setHasStepCompleted ] = useState(false);
+    const [ needsVerification, setNeedsVerification ] = useState(false);
 
     async function fetchAutocomplete() {
         try {
@@ -68,7 +70,9 @@ function Verify(props) {
             const result = await Api.post('/api/auth/consult-prepare', prediction);
 
             if (result.success) {
-
+                setHasStepCompleted(true);
+                setNeedsVerification(result.needsManualConfirmation);
+                window.scrollTo(0,0);
             }
             else {
                 setValidationErrors(result);
@@ -76,7 +80,7 @@ function Verify(props) {
             setIsSubmitting(false);
         }
         catch (ex) {
-
+            setIsSubmitting(false);
         }
     }
 
@@ -88,6 +92,41 @@ function Verify(props) {
 
     if (prediction.pristine) {
         fetchAutocomplete();
+    }
+
+    if (hasStepCompleted) {
+        return (
+            <div
+                style={{ display: 'flex', alignItems: 'center', height: 'calc(100vh - 64px)' }}
+            >
+                <Grid
+                    middle
+                >
+                    <GridCell three />
+                    <GridCell six>
+                        <Section>
+                            <LargeSpinner
+                                success
+                            />
+
+                            {needsVerification ? (
+                                <P>{translate('SIGN_UP.VERIFY.COMPLETED.NEEDS_VERIFICATION')}</P>
+                            ) : (
+                                <P>{translate('SIGN_UP.VERIFY.COMPLETED.NO_VERIFICATION')}</P>
+                            )}
+
+                            <Button
+                                primary
+                                full
+                            >
+                                {translate('SIGN_UP.VERIFY.COMPLETED.CTA')}
+                            </Button>
+                        </Section>
+                    </GridCell>
+                    <GridCell three />
+                </Grid>
+            </div>
+        );
     }
 
     return (
@@ -351,7 +390,6 @@ function VerifyForm(props) {
 
                 <Label
                     htmlFor="phone"
-                    className="alegrify-space--large"
                 >
                     {translate('SIGN_UP.VERIFY.PHONE_LABEL')}
                 </Label>
