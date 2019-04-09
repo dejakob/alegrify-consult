@@ -8,6 +8,7 @@ function Welcome(props) {
     const [ typedName, setTypedName ] = useState('');
     const [ autocompleteResults, setAutocompleteResults ] = useState([]);
     const [ selectedName, setSelectedName ] = useState(null);
+    const [ hasSubmitted, setHasSubmitted ] = useState(false);
 
     useEffect(() => {
 
@@ -48,7 +49,15 @@ function Welcome(props) {
                         action="/signup/verify"
                         onSubmit={e => {
                             e.preventDefault();
-                            props.history.push(`/signup/verify/${selectedName}`)
+                            setHasSubmitted(true);
+
+                            if (selectedName) {
+                                props.history.push(`/signup/verify/${selectedName}`)
+                            }
+
+                            else if (typedName && typedName.indexOf(' ') > 0) {
+                                props.history.push(`/signup/verify/${typedName}`)
+                            }
                         }}
                     >
                         <Section>
@@ -60,12 +69,21 @@ function Welcome(props) {
                             <Input
                                 full
                                 placeholder={translate('SIGN_UP.WELCOME.NAME_INPUT_PLACEHOLDER')}
-                                className="alegrify-space--large"
+                                className={hasSubmitted && (!typedName || typedName.indexOf(' ') <= 0) ? '' : 'alegrify-space--large'}
                                 name="name"
                                 id="name"
                                 value={typedName}
                                 onValueChange={setTypedName}
                             />
+                            {hasSubmitted && (!typedName || typedName.indexOf(' ') <= 0) ? (
+                                <Label
+                                    htmlFor="name"
+                                    className="alegrify-space--large"
+                                    error
+                                >
+                                    {translate('SIGN_UP.WELCOME.VALIDATION_ERRORS.NAME')}
+                                </Label>
+                            ) : null}
 
                             <div
                                 className={autocompleteResults.length ? 'alegrify-space--large' : ''}
@@ -86,23 +104,10 @@ function Welcome(props) {
                             <Button
                                 type="submit"
                                 primary
-                                disabled={!selectedName}
+                                disabled={typedName.length < 3 || autocompleteResults.length && !selectedName}
                             >
                                 {translate('SIGN_UP.WELCOME.CTA')}
                             </Button>
-
-                            {autocompleteResults.length ? (
-                                <div
-                                    style={{ marginTop: '8px' }}
-                                >
-                                    <a
-                                        href="#"
-                                        title={translate('SIGN_UP.WELCOME.NOT_FOUND_LINK')}
-                                    >
-                                        {translate('SIGN_UP.WELCOME.NOT_FOUND_LINK')}
-                                    </a>
-                                </div>
-                            ) : null}
                         </Section>
                     </form>
                 </GridCell>

@@ -5,7 +5,10 @@
             "SUBTITLE": "Mogen we even je naam weten?",
             "NAME_INPUT_PLACEHOLDER": "Vul hier even jouw naam in",
             "CTA": "Verder gaan",
-            "NOT_FOUND_LINK": "Ik zie mezelf niet in de lijst"
+            "NOT_FOUND_LINK": "Ik zie mezelf niet in de lijst",
+            "VALIDATION_ERRORS": {
+                "NAME": "Vul aub je volledige naam in"
+            }
         },
         "VERIFY": {
             "TITLE": "Hallo {{ firstName }}!",
@@ -29,6 +32,11 @@
             "LICENSE_NUMBER": "Licentienummer",
             "ANYTHING_ELSE": "Nog iets toe te voegen?",
             "CTA": "Het ziet er goed uit"
+        },
+        "CONFIRM": {
+            "USER_NAME": "Gebruikersnaam",
+            "PASSWORD": "Wachtwoord",
+            "CTA": "Registreer me!"
         },
         "LANGUAGES": {
             "DUTCH": "Nederlands",

@@ -5,7 +5,10 @@
             "SUBTITLE": "Tell us your name",
             "NAME_INPUT_PLACEHOLDER": "Fill in your name here",
             "CTA": "Go further",
-            "NOT_FOUND_LINK": "I'm not on the list"
+            "NOT_FOUND_LINK": "I'm not on the list",
+            "VALIDATION_ERRORS": {
+                "NAME": "Please fill in your full name"
+            }
         },
         "VERIFY": {
             "TITLE": "Hello {{ firstName }}!",
@@ -29,6 +32,11 @@
             "LICENSE_NUMBER": "License number",
             "ANYTHING_ELSE": "Anything else",
             "CTA": "All seems good"
+        },
+        "CONFIRM": {
+            "USER_NAME": "Username",
+            "PASSWORD": "Password",
+            "CTA": "Sign me up!"
         },
         "LANGUAGES": {
             "DUTCH": "Dutch",

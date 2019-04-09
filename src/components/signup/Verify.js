@@ -6,6 +6,7 @@ import Avatar from '../ui/Avatar';
 import { translate } from '../../helpers/language';
 import { H2 } from 'react-alegrify-ui/build/typography';
 
+// Todo blocking: check if is not already a user
 
 const LANGUAGES_MAP = {
     "Duits": "GERMAN",
@@ -63,7 +64,9 @@ function Verify(props) {
         <React.Fragment>
             <Grid>
                 <GridCell four>
-                    <Aside>
+                    <Aside
+                        className="alegrify-space--large"
+                    >
                         <Section>
                             <H1 style={{ margin: 0 }}>
                                 {translate('SIGN_UP.VERIFY.TITLE', { firstName })}
@@ -91,9 +94,23 @@ function Verify(props) {
 }
 
 function VerifyForm(props) {
+    async function handleSubmit(e) {
+        e.preventDefault();
+
+        try {
+            console.log('data', props.data);
+            const result = await Api.post('/api/auth/consult-prepare', props.data);
+            console.log('result', result);
+        }
+        catch (ex) {
+
+        }
+    }
+
     return (
         <form
             method="post"
+            onSubmit={handleSubmit}
         >
             <Section
                 className="alegrify-space--large"
@@ -245,6 +262,7 @@ function VerifyForm(props) {
                         key={index}
                         name="email"
                         id={`email_${index}`}
+                        onChange={() => props.onFieldChange('email', email)}
                     >
                         {email}
                     </Radio>
@@ -255,6 +273,7 @@ function VerifyForm(props) {
                         name="email"
                         full
                         className="alegrify-space--large"
+                        onValueChange={email => props.onFieldChange('email', email)}
                     />
                 ) : null}
 
@@ -276,6 +295,7 @@ function VerifyForm(props) {
                         key={index}
                         name="phone"
                         id={`phone${index}`}
+                        onChange={() => props.onFieldChange('phone', phone)}
                     >
                         {phone}
                     </Radio>
@@ -286,6 +306,7 @@ function VerifyForm(props) {
                         name="phone"
                         full
                         className="alegrify-space--large"
+                        onValueChange={phone => props.onFieldChange('phone', phone)}
                     />
                 ) : null}
             </Section>
@@ -324,7 +345,6 @@ function psychoPredictionToUsableData(input) {
         fullName: input.name,
         languages: (input.language || [ 'Engels' ]).map(lang => LANGUAGES_MAP[lang] || DEFAULT_LANGUAGE),
         gender: GENDER_MAP[input.gender] || DEFAULT_GENDER,
-        aboutMe: input.extraInfo,
         licenseNumber: input.licenseNumber,
         extraInfo: (input.extraInfo || '').trim().replace(/\t/gi, '').replace(/[ ]+/gi, ' '),
         emails: (input.addresses || []).map(a => a.email).filter(a => !!a && a.length),
