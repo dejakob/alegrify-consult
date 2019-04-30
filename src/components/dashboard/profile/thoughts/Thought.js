@@ -3,6 +3,7 @@ import { Button, HistoricItem } from 'react-alegrify-ui';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ThoughtDetail from './ThoughtDetail';
+import { translate } from '../../../../helpers/language';
 
 /**
  * <Thought />
@@ -24,13 +25,13 @@ class Thought extends Component {
 
                 <Link
                     to={`/dashboard/${this.props.user.user_name}/thought/${this.props.id}`}
-                    title="See reflections"
+                    title={translate('PROFILE.SEE_REFLECTIONS')}
                 >
                     <Button
                         secondary
                         full
                     >
-                        See reflections
+                        {translate('PROFILE.SEE_REFLECTIONS')}
                     </Button>
                 </Link>
             </HistoricItem>

@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { Section } from 'react-alegrify-ui';
 import { SideNavAwareMain } from '../../../ui/SideNav';
 import { mapStateToProps } from '../../../../services/store';
+import { translate } from '../../../../helpers/language';
 
 const Flex = styled.div`
     display: flex;
@@ -56,7 +57,7 @@ function PendingWaiting() {
                 <Icon>
                     <i className="material-icons">lock</i>
                 </Icon>
-                <span>The user needs to accept your invitation.</span>
+                <span>{translate('DASHBOARD.USER_NEEDS_TO_ACCEPT')}</span>
             </Section>
         </Flex>
     );

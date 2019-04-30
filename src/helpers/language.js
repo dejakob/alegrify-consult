@@ -27,7 +27,16 @@ i18next.init({
     resources
 });
 
-function translate(key, options) {
+function translate(key, options = {}) {
+    if (typeof options.amount === 'number') {
+        const values = i18next.t(key, {
+            amount: options.amount,
+            returnObjects: true
+        });
+
+        return values[Math.min(values.length - 1, options.amount)]
+    }
+
     return i18next.t(key, options);
 }
 translate.supportedLanguages = supportedLanguages;

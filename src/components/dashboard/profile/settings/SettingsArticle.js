@@ -4,6 +4,7 @@ import Api from '../../../../helpers/api';
 import store, { ACTIONS } from '../../../../services/store';
 import SettingsConfirmDialog from './SettingsConfirmDialog';
 import createComponent from '../../../../helpers/create-component';
+import { translate } from '../../../../helpers/language';
 
 const SettingsArticle = createComponent({
     state: { shouldShowDisconnectConfirm: false },
@@ -42,7 +43,7 @@ function SettingsArticleView(props) {
                     onClick={props.showDisconnectConfirm}
                     type="button"
                 >
-                    Disconnect
+                    {translate('PROFILE.DISCONNECT')}
                 </Button>
             </Section>
 
@@ -51,7 +52,7 @@ function SettingsArticleView(props) {
                 onYes={props.disconnect}
                 onNo={props.hideDisconnectConfirm}
             >
-                Are you sure you want to disconnect from {props.user.full_name}?
+                {translate('PROFILE.DISCONNECT_CONFIRM', { fullName: props.user.full_name })}
             </SettingsConfirmDialog>
         </Article>
     );

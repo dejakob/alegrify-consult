@@ -8,6 +8,7 @@ import SideNav, {
 } from '../../ui/SideNav';
 import SideNavHeader from './SideNavHeader';
 import SideNavListItem from './SideNavListItem';
+import { translate } from '../../../helpers/language';
 
 class SideNavComponent extends Component {
     constructor() {
@@ -65,10 +66,9 @@ class SideNavComponent extends Component {
                     <SideNavFooter
                         to="/dashboard/connect"
                     >
-                        <span>
-                            {/* Todo: plural trans */}
-                            <strong>{props.users.length}</strong> users connected
-                        </span>
+                        <span
+                            dangerouslySetInnerHTML={{ __html: translate('PROFILE.USERS_CONNECTED', { amount: props.users.length }) }}
+                        />
                         <i className="material-icons">add</i>
                     </SideNavFooter>
                 </SideNavContent>

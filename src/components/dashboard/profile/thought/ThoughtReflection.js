@@ -1,17 +1,18 @@
 import React from 'react';
 import moment from 'moment';
 import { Dl, Dt, Dd } from 'react-alegrify-ui';
+import { translate } from '../../../../helpers/language';
 
 function ThoughtReflection(props) {
     return (
         <Dl>
-            <Dt>Reflection</Dt>
+            <Dt>{translate('PROFILE.REFLECTION')}</Dt>
             <Dd>{props.reflection}</Dd>
 
-            <Dt>How reliable does the thought sound now?</Dt>
+            <Dt>{translate('PROFILE.REFLECTION_RELIABLE')}</Dt>
             <Dd>{props.reliability}</Dd>
 
-            <Dt>When was this written?</Dt>
+            <Dt>{translate('PROFILE.REFLECTION_WHEN')}</Dt>
             <Dd>
                 {moment(props.created_at).format('dddd, MMMM Do YYYY, h:mm:ss a')}
             </Dd>

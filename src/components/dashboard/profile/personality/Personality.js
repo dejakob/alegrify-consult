@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Aside, Grid, Section } from 'react-alegrify-ui';
 import PersonalityArticle from './PersonalityArticle';
+import { translate } from '../../../../helpers/language';
 
 
 class Personality extends PureComponent {
@@ -16,8 +17,7 @@ class Personality extends PureComponent {
                     className="alegrify-grid__cell alegrify-grid__cell--4 alegrify-space--extra-large"
                 >
                     <Section>
-                        Each user answers the questions in the language of his/her preference. <br /><br />
-                        When the user changes the answer of a question, the last chosen answer will be shown.
+                        {translate('PROFILE.PERSONALITY_INFO')}
                     </Section>
                 </Aside>
                 <PersonalityArticle

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Aside, Section, Dl, Dt, Dd } from 'react-alegrify-ui';
+import { translate } from '../../../../helpers/language';
 
 function OverviewAside(props) {
     return (
@@ -8,11 +9,11 @@ function OverviewAside(props) {
         >
             <Section>
                 <Dl>
-                    <Dt>First name</Dt>
+                    <Dt>{translate('PROFILE.FIRST_NAME')}</Dt>
                     <Dd>{props.user.first_name}</Dd>
-                    <Dt>Last name</Dt>
+                    <Dt>{translate('PROFILE.LAST_NAME')}</Dt>
                     <Dd>{props.user.last_name}</Dd>
-                    <Dt>Email</Dt>
+                    <Dt>{translate('PROFILE.EMAIL')}</Dt>
                     <Dd>{props.user.email}</Dd>
                 </Dl>
             </Section>

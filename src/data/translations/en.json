@@ -70,5 +70,49 @@
         "LOGIN_CTA": "Log in",
         "REGISTER_P": "Need an account?",
         "REGISTER_LINK": "Contact us"
+    },
+    "DASHBOARD": {
+        "TITLE": "Alegrify Consult",
+        "USER_NEEDS_TO_ACCEPT": "The user needs to accept your invitation",
+        "CONNECT_CTA": "Connect",
+        "CONNECT_INFO": "To connect with an Alegrify user, please provide their email address. The user needs to accept the request before you can access any data.",
+        "CONNECT_EMAIL": "Email address",
+        "LANDING_TITLE": "Welcome to Alegrify Consult!",
+        "LANDING_SELECT_INFO": "Select a client from the side nav",
+        "LANDING_CONNECT": "Connect to someone new"
+    },
+    "PROFILE": {
+        "FIRST_NAME": "First name",
+        "LAST_NAME": "Last name",
+        "EMAIL": "Email",
+        "NOTES": "Notes",
+        "SAVE": "Save",
+        "ACTIVE_MODULES": "Active modules",
+        "THOUGHTS": "Thoughts",
+        "PERSONALITY_INFO": "Each user answers the questions in the language of his/her preference. \n\nWhen the user changes the answer of a question, the last chosen answer will be shown.",
+        "DISCONNECT": "Disconnect",
+        "DISCONNECT_CONFIRM": "Are you sure you want to disconnect from {{ fullName }}?",
+        "CONFIRM_YES": "Yes",
+        "CONFIRM_NO": "No",
+        "REFLECTIONS_EMPTY": "No reflections yet for this thought",
+        "REFLECTION": "Reflection",
+        "REFLECTION_RELIABLE": "How reliable does the thought sound now?",
+        "REFLECTION_WHEN": "When was this written?",
+        "SEE_REFLECTIONS": "See reflections",
+        "THOUGHT_FEELINGS": "How did I feel?",
+        "THOUGHT_THOUGHT": "What was I thinking?",
+        "THOUGHT_EVENT": "But what happened?",
+        "THOUGHT_WHEN": "When was this written?",
+        "NAV_OVERVIEW": "Overview",
+        "NAV_THOUGHTS": "Thoughts",
+        "NAV_PERSONALITY": "Personality",
+        "NAV_SETTINGS": "Settings",
+        "USERS_CONNECTED": [
+            "No connections yet",
+            "{{ amount }} user connected",
+            "{{ amount }} users connected"
+        ],
+        "SIDENAV_TITLE": "Alegrify",
+        "SIDENAV_SUBTITLE": "Consult"
     }
 }

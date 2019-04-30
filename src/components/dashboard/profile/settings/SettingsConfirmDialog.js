@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Dialog, Grid, GridCell, P } from 'react-alegrify-ui';
+import { translate } from '../../../../helpers/language';
 
 function SettingsConfirmDialog(props) {
     return (
@@ -22,7 +23,7 @@ function SettingsConfirmDialog(props) {
                         full
                         onClick={props.onYes}
                     >
-                        Yes
+                        {translate('PROFILE.CONFIRM_YES')}
                     </Button>
                 </GridCell>
                 <GridCell
@@ -32,7 +33,7 @@ function SettingsConfirmDialog(props) {
                         full
                         onClick={props.onNo}
                     >
-                        No
+                        {translate('PROFILE.CONFIRM_NO')}
                     </Button>
                 </GridCell>
             </Grid>

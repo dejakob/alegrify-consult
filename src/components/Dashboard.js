@@ -11,6 +11,7 @@ import Pending from './dashboard/connect/pending/Pending';
 import Api from '../helpers/api';
 import store, { mapStateToProps, ACTIONS } from '../services/store';
 import Landing from './dashboard/landing/Landing';
+import { translate } from '../helpers/language';
 
 const StickyHeader = styled.header`
     position: sticky;
@@ -112,7 +113,7 @@ class Dashboard extends PureComponent {
             <React.Fragment>
                 <StickyHeader>
                     <SideNavTrigger />
-                    <span>Alegrify Consult</span>
+                    <span>{translate('DASHBOARD.TITLE')}</span>
                 </StickyHeader>
                 <SideNav
                     users={this.props.clients.clients || []}

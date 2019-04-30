@@ -4,6 +4,7 @@ import {
     SideNavTitle,
     SideNavSubtitle,
 } from '../../ui/SideNav';
+import { translate } from '../../../helpers/language';
 
 function SideNavHeaderComponent(props) {
     return (
@@ -15,10 +16,10 @@ function SideNavHeaderComponent(props) {
             />
             <div>
                 <SideNavTitle>
-                    Alegrify
+                    {translate('PROFILE.SIDENAV_TITLE')}
                 </SideNavTitle>
                 <SideNavSubtitle>
-                    Consult
+                    {translate('PROFILE.SIDENAV_SUBTITLE')}
                 </SideNavSubtitle>
             </div>
         </SideNavHeader>

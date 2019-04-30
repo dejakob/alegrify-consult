@@ -5,6 +5,7 @@ import {
     ProfileNavListItem,
     ProfileNavListItemLink
 } from '../../ui/Profile';
+import { translate } from '../../../helpers/language';
 
 function ProfileNavComponent(props) {
     return (
@@ -16,28 +17,28 @@ function ProfileNavComponent(props) {
                     <ProfileNavListItemLink
                         to={`/dashboard/${props.user.user_name}`}
                     >
-                        Overview
+                        {translate('PROFILE.NAV_OVERVIEW')}
                     </ProfileNavListItemLink>
                 </ProfileNavListItem>
                 <ProfileNavListItem>
                     <ProfileNavListItemLink
                         to={`/dashboard/${props.user.user_name}/thoughts`}
                     >
-                        Thoughts
+                        {translate('PROFILE.NAV_THOUGHTS')}
                     </ProfileNavListItemLink>
                 </ProfileNavListItem>
                 <ProfileNavListItem>
                     <ProfileNavListItemLink
                         to={`/dashboard/${props.user.user_name}/personality`}
                     >
-                        Personality
+                        {translate('PROFILE.NAV_PERSONALITY')}
                     </ProfileNavListItemLink>
                 </ProfileNavListItem>
                 <ProfileNavListItem>
                     <ProfileNavListItemLink
                         to={`/dashboard/${props.user.user_name}/settings`}
                     >
-                        Settings
+                        {translate('PROFILE.NAV_SETTINGS')}
                     </ProfileNavListItemLink>
                 </ProfileNavListItem>
             </ProfileNavList>

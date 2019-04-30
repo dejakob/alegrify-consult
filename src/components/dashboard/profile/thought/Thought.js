@@ -3,6 +3,7 @@ import ThoughtDetail from '../thoughts/ThoughtDetail';
 import ThoughtReflection from './ThoughtReflection';
 import { Grid, Aside, Article, Section } from 'react-alegrify-ui';
 import { mapStateToProps } from '../../../../services/store';
+import { translate } from '../../../../helpers/language';
 
 class Thought extends PureComponent {
     render () {
@@ -33,7 +34,7 @@ class Thought extends PureComponent {
                 >
                     {thought.reflections.length === 0 ? (
                         <Section>
-                            No reflections for this thought yet
+                            {translate('PROFILE.REFLECTIONS_EMPTY')}
                         </Section>
                     ) : null}
 

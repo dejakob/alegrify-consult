@@ -1,22 +1,23 @@
 import React from 'react';
 import moment from 'moment';
 import { Dl, Dt, Dd } from 'react-alegrify-ui';
+import { translate } from '../../../../helpers/language';
 
 function ThoughtDetail(props) {
     return (
         <Dl>
-            <Dt>How did I feel?</Dt>
+            <Dt>{translate('PROFILE.THOUGHT_FEELINGS')}</Dt>
             <Dd>{props.my_mood * 10}% {(props.my_mood_type || '').toLowerCase()}</Dd>
 
-            <Dt>What was I thinking?</Dt>
+            <Dt>{translate('PROFILE.THOUGHT_THOUGHT')}</Dt>
             <Dd>{props.thought}</Dd>
 
-            <Dt>But what happened?</Dt>
+            <Dt>{translate('PROFILE.THOUGHT_EVENT')}</Dt>
             <Dd>
                 {props.thought_event}
             </Dd>
 
-            <Dt>When was this written?</Dt>
+            <Dt>{translate('PROFILE.THOUGHT_WHEN')}</Dt>
             <Dd>
                 {moment(props.created_at).format('dddd, MMMM Do YYYY, h:mm:ss a')}
             </Dd>

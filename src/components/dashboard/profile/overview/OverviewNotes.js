@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Section, Label, Input, Button } from 'react-alegrify-ui';
 import Api from '../../../../helpers/api';
+import { translate } from '../../../../helpers/language';
 
 class OverviewNotes extends PureComponent {
     constructor() {
@@ -45,7 +46,7 @@ function OverviewNotesView(props) {
                 <Label
                     htmlFor="notes"
                 >
-                    Notes
+                    {translate('PROFILE.NOTES')}
                 </Label>
                 <Input
                     name="notes"
@@ -61,7 +62,7 @@ function OverviewNotesView(props) {
                     type="submit"
                     primary
                 >
-                    Save
+                    {translate('PROFILE.SAVE')}
                 </Button>
             </form>
         </Section>

@@ -4,6 +4,7 @@ import { SideNavAwareMain } from '../../ui/SideNav';
 import Api from '../../../helpers/api';
 import store, { ACTIONS } from '../../../services/store';
 import LargeSpinner from '../../ui/LargeSpinner';
+import { translate } from '../../../helpers/language';
 
 const Mountains = 'https://storage.googleapis.com/alegrify/core/images/mountains.jpg';
 
@@ -60,7 +61,7 @@ function ConnectView(props) {
                             primary
                             full
                         >
-                            Connect
+                            {translate('DASHBOARD.CONNECT_CTA')}
                         </Button>
                         )
                     }
@@ -82,13 +83,13 @@ function ConnectionCardContent(props) {
     return (
         <React.Fragment>
             <P>
-                To connect with an Alegrify user, please provide their email address. The user needs to accept the request before you can access any data.
+                {translate('DASHBOARD.CONNECT_INFO')}
             </P>
 
             <Label
                 htmlFor="connect_email"
             >
-                Email address
+                {translate('DASHBOARD.CONNECT_EMAIL')}
             </Label>
             <ConnectViewInput
                 handleEmailChange={props.handleEmailChange}

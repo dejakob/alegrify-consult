@@ -70,5 +70,49 @@
         "LOGIN_CTA": "Log in",
         "REGISTER_P": "Nog geen account?",
         "REGISTER_LINK": "Contacteer ons"
+    },
+    "DASHBOARD": {
+        "TITLE": "Alegrify Consult",
+        "USER_NEEDS_TO_ACCEPT": "Deze gebruiker moet je uitnodiging nog aanvaarden",
+        "CONNECT_CTA": "Verbind",
+        "CONNECT_INFO": "Om informatie te delen met een gebruiker van Alegrify, vul hier hun email adres in. Deze gebruiker zal dit moeten goedkeuren voor je toegang krijgt tot de data.",
+        "CONNECT_EMAIL": "E-mailadres",
+        "LANDING_TITLE": "Welkom bij Alegrify Consult!",
+        "LANDING_SELECT_INFO": "Kies een gebruiker uit het side-menu",
+        "LANDING_CONNECT": "Verbind met iemand anders"
+    },
+    "PROFILE": {
+        "FIRST_NAME": "Voornaam",
+        "LAST_NAME": "Familienaam",
+        "EMAIL": "E-mail",
+        "NOTES": "Notities",
+        "SAVE": "Opslaan",
+        "ACTIVE_MODULES": "Actieve modules",
+        "THOUGHTS": "Gedachtes",
+        "PERSONALITY_INFO": "Iedere gebruiker kan de vragen in eender welke taal beantwoorden. \n\nAls de gebruiker het antwoord wijzigt, wordt de laatste keuze bijgehouden.",
+        "DISCONNECT": "Verbreek verbinding",
+        "DISCONNECT_CONFIRM": "Weet je zeker dat je de verbinding met {{ fullName }} wilt verbreken?",
+        "CONFIRM_YES": "Ja",
+        "CONFIRM_NO": "Neen",
+        "REFLECTIONS_EMPTY": "Nog geen reflecties bij deze gedachte",
+        "REFLECTION": "Reflectie",
+        "REFLECTION_RELIABLE": "Hoe geloofwaardig lijkt de gedachte nu?",
+        "REFLECTION_WHEN": "Wanneer werd deze geschreven?",
+        "SEE_REFLECTIONS": "Bekijk reflecties",
+        "THOUGHT_FEELINGS": "Hoe voelde ik me?",
+        "THOUGHT_THOUGHT": "Wat dacht ik?",
+        "THOUGHT_EVENT": "Door welke gebeurtenis dacht ik dat?",
+        "THOUGHT_WHEN": "Wanneer werd dit geschreven?",
+        "NAV_OVERVIEW": "Overzicht",
+        "NAV_THOUGHTS": "Gedachtes",
+        "NAV_PERSONALITY": "Persoonlijkheid",
+        "NAV_SETTINGS": "Instellingen",
+        "USERS_CONNECTED": [
+            "Nog met niemand verbonden",
+            "Verbonden met {{ amount }} gebruiker",
+            "Verbonden met {{ amount }} gebruikers"
+        ],
+        "SIDENAV_TITLE": "Alegrify",
+        "SIDENAV_SUBTITLE": "Consult"
     }
 }

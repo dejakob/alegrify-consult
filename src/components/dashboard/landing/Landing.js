@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Section, H2, P, Button } from 'react-alegrify-ui';
 import { SideNavAwareMain } from '../../ui/SideNav';
 import { SpaceXL } from 'react-alegrify-ui/build/spacing';
+import { translate } from '../../../helpers/language';
 
 const Flex = styled.div`
     display: flex;
@@ -18,10 +19,10 @@ function Landing() {
         <SideNavAwareMain>
             <Flex>
                 <Section>
-                    <H2>Welcome to Alegrify Consult!</H2>
+                    <H2>{translate('DASHBOARD.LANDING_TITLE')}</H2>
 
                     <SpaceXL>
-                        <P>Select a client from the side nav or</P>
+                        <P>{translate('DASHBOARD.LANDING_SELECT_INFO')}</P>
                     </SpaceXL>
 
                     <Link
@@ -31,7 +32,7 @@ function Landing() {
                             primary
                             full
                         >
-                            Connect to someone new
+                            {translate('DASHBOARD.LANDING_CONNECT')}
                         </Button>
                     </Link>
                 </Section>
