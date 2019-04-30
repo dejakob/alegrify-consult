@@ -4,11 +4,14 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 // import * as serviceWorker from './serviceWorker';
 import '../node_modules/alegrify-ui/alegrify-ui.min.css';
+import { ErrorBoundary } from './helpers/logger';
 
 ReactDOM.render(
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>,
+    <ErrorBoundary>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </ErrorBoundary>,
     document.getElementById('root')
 );
 

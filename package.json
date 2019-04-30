@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@bugsnag/js": "^6.2.0",
+    "@bugsnag/plugin-react": "^6.2.0",
     "alegrify-ui": "dejakob/alegrify-ui",
     "babel-eslint": "9.0.0",
     "i18next": "^15.0.9",
