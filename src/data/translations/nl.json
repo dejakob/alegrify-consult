@@ -60,5 +60,15 @@
             "SPANISH": "Spaans",
             "PORTUGUESE": "Portugees"
         }
+    },
+    "WELCOME": {
+        "TITLE": "Alegrify Consult",
+        "EMAIL_LABEL": "E-mailadres",
+        "EMAIL_PLACEHOLDER": "name@provider.com",
+        "PASSWORD_LABEL": "Wachtwoord",
+        "PASSWORD_PLACEHOLDER": "***",
+        "LOGIN_CTA": "Log in",
+        "REGISTER_P": "Nog geen account?",
+        "REGISTER_LINK": "Contacteer ons"
     }
 }

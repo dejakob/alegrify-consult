@@ -20,7 +20,7 @@ function Confirm(props) {
     }
 
     const { code } = props.match.params;
-    const [ userId, setUserId ] = useState(null);
+    const [ setUserId ] = useState(null);
     const [ userName, setUserName ] = useState('');
     const [ password, setPassword ] = useState('');
 
@@ -28,7 +28,7 @@ function Confirm(props) {
         e.preventDefault();
     }
 
-    async function confirmWithCode() {
+    async function confirmWithCode() { // TODO
         try {
             const fetchedUserId = await Api.get(`/api/auth/consult-confirm/${code}`);
             setUserId(fetchedUserId);

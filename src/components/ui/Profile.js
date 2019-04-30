@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Mountains from '../../images/mountains.jpg';
+
+const Mountains = 'https://storage.googleapis.com/alegrify/core/images/mountains.jpg';
 
 const ProfileHeader = styled.header`
     display: block;

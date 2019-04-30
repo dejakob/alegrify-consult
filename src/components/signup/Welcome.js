@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import Api from '../../helpers/api';
-import { H1, Article, Input, Button, Section, Label, Grid, GridCell, DropdownItem, Radio } from 'react-alegrify-ui';
+import { H1, Article, Input, Button, Section, Label, Grid, GridCell, Radio } from 'react-alegrify-ui';
 import { translate } from '../../helpers/language';
 
 function Welcome(props) {
@@ -104,7 +104,7 @@ function Welcome(props) {
                             <Button
                                 type="submit"
                                 primary
-                                disabled={typedName.length < 3 || autocompleteResults.length && !selectedName}
+                                disabled={typedName.length < 3 || (autocompleteResults.length && !selectedName)}
                             >
                                 {translate('SIGN_UP.WELCOME.CTA')}
                             </Button>

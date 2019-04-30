@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Button, Grid, H1, Main, Section, Label, Input } from 'react-alegrify-ui';
-import logo from '../logo.svg';
 import Api from '../helpers/api';
 import store, { ACTIONS, mapStateToProps } from '../services/store';
+import { translate } from '../helpers/language';
+
+const logo = 'https://storage.googleapis.com/alegrify/core/alegrify_first_try.svg';
 
 // Todo: clientside validation
 
@@ -71,7 +73,7 @@ class Welcome extends Component {
                             <span 
                                 style={{ color: '#ffffff', display: 'block', textAlign: 'center' }}
                             >
-                                Alegrify Consult
+                                {translate('WELCOME.TITLE')}
                             </span>
                         </H1>
     
@@ -83,7 +85,7 @@ class Welcome extends Component {
                                 <Label
                                     htmlFor="login_user_name"
                                 >
-                                    Email address
+                                    {translate('WELCOME.EMAIL_LABEL')}
                                 </Label>
                                 <Input
                                     name="login_user_name"
@@ -106,12 +108,12 @@ class Welcome extends Component {
                                 <Label
                                     htmlFor="login_password"
                                 >
-                                    Password
+                                    {translate('WELCOME.PASSWORD_LABEL')}
                                 </Label>
                                 <Input
                                     name="login_password"
                                     id="login_password"
-                                    placeholder="***"
+                                    placeholder={translate('WELCOME.PASSWORD_PLACEHOLDER')}
                                     className="alegrify-space--large"
                                     full
                                     type="password"
@@ -133,7 +135,7 @@ class Welcome extends Component {
                                     loading={this.props.auth.loading}
                                     disabled={!this.isValid || this.props.auth.loading}
                                 >
-                                    Log in
+                                    {translate('WELCOME.LOGIN_CTA')}
                                 </Button>
                                 <Label
                                     error
@@ -148,7 +150,7 @@ class Welcome extends Component {
                         <p
                             style={{ textAlign: 'right' }}
                         >
-                            Need an account?&nbsp;
+                            {translate('WELCOME.REGISTER_P')}&nbsp;
                             <a
                                 href="mailto:happy@alegrify.com"
                                 title="Mail us"
@@ -156,7 +158,7 @@ class Welcome extends Component {
                                 rel="noopener noreferrer"
                                 style={{ color: '#ffffff' }}
                             >
-                                Contact us
+                                {translate('WELCOME.REGISTER_LINK')}
                             </a>
                         </p>
                     </div>

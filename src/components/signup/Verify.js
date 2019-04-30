@@ -464,6 +464,7 @@ function psychoPredictionToUsableData(input) {
         extraInfo: (input.extraInfo || '').trim().replace(/\t/gi, '').replace(/[ ]+/gi, ' '),
         emails: (input.addresses || []).map(a => a.email).filter(a => !!a && a.length),
         phones: (input.addresses || [])
+        // eslint-disable-next-line
             .map(a => (a.phone || '').replace(/[/\\_\?\.\:\;\* a-zA-Z]+/gi, ''))
             .filter(a => !!a && a.length)
     };

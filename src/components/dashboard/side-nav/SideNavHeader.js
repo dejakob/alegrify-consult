@@ -4,13 +4,12 @@ import {
     SideNavTitle,
     SideNavSubtitle,
 } from '../../ui/SideNav';
-import logo from '../../../logo.svg';
 
 function SideNavHeaderComponent(props) {
     return (
         <SideNavHeader>
             <img
-                src={logo}
+                src="https://storage.googleapis.com/alegrify/core/alegrify_first_try.svg"
                 alt="logo"
                 height={50}
             />

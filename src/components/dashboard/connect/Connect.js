@@ -3,8 +3,9 @@ import { Button, Card, P, Label, Input } from 'react-alegrify-ui';
 import { SideNavAwareMain } from '../../ui/SideNav';
 import Api from '../../../helpers/api';
 import store, { ACTIONS } from '../../../services/store';
-import Mountains from '../../../images/mountains.jpg';
 import LargeSpinner from '../../ui/LargeSpinner';
+
+const Mountains = 'https://storage.googleapis.com/alegrify/core/images/mountains.jpg';
 
 class Connect extends Component {
     constructor() {
