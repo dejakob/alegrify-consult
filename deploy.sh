@@ -1,6 +1,6 @@
-git reset --hard
+git reset --hard origin/master
 git clean -fd
-git pull
+git pull origin master
 rm -rf node_modules
 yarn
 yarn build
