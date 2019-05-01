@@ -81,7 +81,8 @@
         "LANDING_SELECT_INFO": "Select a client from the side nav",
         "LANDING_CONNECT": "Connect to someone new",
         "CONNECTED_SINCE": "Connected since {{ connectedAt }}",
-        "CONNECTION_PENDING": "Connection Pending"
+        "CONNECTION_PENDING": "Connection Pending",
+        "USER_CANCEL_PENDING": "Cancel invitation"
     },
     "PROFILE": {
         "FIRST_NAME": "First name",

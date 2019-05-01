@@ -81,7 +81,8 @@
         "LANDING_SELECT_INFO": "Kies een gebruiker uit het side-menu",
         "LANDING_CONNECT": "Verbind met iemand anders",
         "CONNECTED_SINCE": "Connectie sinds {{ connectedAt }}",
-        "CONNECTION_PENDING": "Pending..."
+        "CONNECTION_PENDING": "Pending...",
+        "USER_CANCEL_PENDING": "Annuleer uitnodiging"
     },
     "PROFILE": {
         "FIRST_NAME": "Voornaam",

@@ -82,23 +82,41 @@ function clientsReducer(s = INITIAL_STATE, action) {
 
         /* Add pending client */
         case ACTIONS.CONNECT_SUCCESS:
-            return state.update('clients',
-                clients => clients.push(
-                    Immutable.fromJS({ email: action.email, pending: true })
+            return state
+                .set('loading', false)
+                .update('clients',
+                    clients => clients.push(
+                        Immutable.fromJS({ email: action.email, pending: true })
                 )
             );
+
+        /* Remove pending client */
+        case ACTIONS.CONNECT_CANCEL:
+            return state.set('loading', true);
+
+        case ACTIONS.CONNECT_CANCEL_SUCCESS:
+            return state
+                .set('loading', false)
+                .update('clients', clients => clients.filter(
+                    client => client.get('email') !== action.email
+                ));
+
+        case ACTIONS.CONNECT_CANCEL_FAILED:
+            return state.set('loading', false);
 
         case ACTIONS.DISCONNECT:
             return state.set('loading', true);
 
         case ACTIONS.DISCONNECT_SUCCESS:
-            return state.update('clients',
-                clients => clients
-                    .filter(client => client.get('_id') !== action.clientId)
+            return state
+                .set('loading', false)
+                .update('clients',
+                    clients => clients
+                        .filter(client => client.get('_id') !== action.clientId)
             );
 
         case ACTIONS.DISCONNECT_FAILED:
-            return state.set('loading', true);
+            return state.set('loading', false);
 
         default:
             return state;
