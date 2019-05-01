@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Section, H2, P, Button } from 'react-alegrify-ui';
 import { SideNavAwareMain } from '../../ui/SideNav';
-import { SpaceXL } from 'react-alegrify-ui/build/spacing';
 import { translate } from '../../../helpers/language';
 
 const Flex = styled.div`
@@ -21,9 +20,7 @@ function Landing() {
                 <Section>
                     <H2>{translate('DASHBOARD.LANDING_TITLE')}</H2>
 
-                    <SpaceXL>
-                        <P>{translate('DASHBOARD.LANDING_SELECT_INFO')}</P>
-                    </SpaceXL>
+                    <P>{translate('DASHBOARD.LANDING_SELECT_INFO')}</P>
 
                     <Link
                         to="/dashboard/connect"

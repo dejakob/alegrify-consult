@@ -79,7 +79,9 @@
         "CONNECT_EMAIL": "Email address",
         "LANDING_TITLE": "Welcome to Alegrify Consult!",
         "LANDING_SELECT_INFO": "Select a client from the side nav",
-        "LANDING_CONNECT": "Connect to someone new"
+        "LANDING_CONNECT": "Connect to someone new",
+        "CONNECTED_SINCE": "Connected since {{ connectedAt }}",
+        "CONNECTION_PENDING": "Connection Pending"
     },
     "PROFILE": {
         "FIRST_NAME": "First name",

@@ -35,6 +35,7 @@ class SideNavComponent extends Component {
 
         const { props } = this;
 
+
         return (
             <SideNav
                 className={this.state.isOpen ? 'is-open' : ''}
@@ -50,7 +51,7 @@ class SideNavComponent extends Component {
                                 to={`/dashboard/connect/pending/${user._id}`}
                                 title={user.email}
                                 avatar={user.avatar}
-                                subtitle={`Connection pending`}
+                                subtitle={translate('DASHBOARD.CONNECTION_PENDING')}
                             />
                         ) : (
                             <SideNavListItem
@@ -58,7 +59,11 @@ class SideNavComponent extends Component {
                                 to={`/dashboard/${user.user_name}`}
                                 title={user.full_name}
                                 avatar={user.avatar}
-                                subtitle={`Connected since ${moment(user.connected_at).format('MMM Do')}`}
+                                subtitle={
+                                    translate('DASHBOARD.CONNECTED_SINCE', {
+                                        connectedAt: moment(user.connected_at).format('MMM Do')
+                                    })
+                                }
                             />
                         ))}
                     </SideNavList>

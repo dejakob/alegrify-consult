@@ -79,7 +79,9 @@
         "CONNECT_EMAIL": "E-mailadres",
         "LANDING_TITLE": "Welkom bij Alegrify Consult!",
         "LANDING_SELECT_INFO": "Kies een gebruiker uit het side-menu",
-        "LANDING_CONNECT": "Verbind met iemand anders"
+        "LANDING_CONNECT": "Verbind met iemand anders",
+        "CONNECTED_SINCE": "Connectie sinds {{ connectedAt }}",
+        "CONNECTION_PENDING": "Pending..."
     },
     "PROFILE": {
         "FIRST_NAME": "Voornaam",

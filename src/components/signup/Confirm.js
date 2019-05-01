@@ -9,7 +9,9 @@ import { translate } from '../../helpers/language';
  * @param {Object} props 
  */
 function Confirm(props) {
-    console.log('match', props.match);
+    const [ userId, setUserId ] = useState(null);
+    const [ userName, setUserName ] = useState('');
+    const [ password, setPassword ] = useState('');
 
     if (!props.match || !props.match.params || !props.match.params.code) {
         return (
@@ -18,11 +20,8 @@ function Confirm(props) {
             />
         )
     }
-
+    
     const { code } = props.match.params;
-    const [ setUserId ] = useState(null);
-    const [ userName, setUserName ] = useState('');
-    const [ password, setPassword ] = useState('');
 
     function handleFormSubmit(e) {
         e.preventDefault();

@@ -7,11 +7,11 @@ import '../node_modules/alegrify-ui/alegrify-ui.min.css';
 import { ErrorBoundary } from './helpers/logger';
 
 ReactDOM.render(
-    <ErrorBoundary>
-        <BrowserRouter>
+    <BrowserRouter>
+        <ErrorBoundary>
             <App />
-        </BrowserRouter>
-    </ErrorBoundary>,
+        </ErrorBoundary>
+    </BrowserRouter>,
     document.getElementById('root')
 );
 

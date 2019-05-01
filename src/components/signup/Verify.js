@@ -25,16 +25,14 @@ const GENDER_MAP = {
 const DEFAULT_GENDER = 'OTHER';
 
 function Verify(props) {
-    if (!props.match || !props.match.params || !props.match.params.name) {
-        return (
-            <Redirect
-                to="/signup"
-            />
-        )
-    }
+    let firstName = '';
+    let name = '';
 
-    const { name } = props.match.params;
-    const [ firstName ] = name.split(' ');
+    try {
+        name = props.match.params.name;
+        firstName = name.split(' ')[0];
+    }
+    catch (ex) {}
 
     const [ prediction, setPrediction ] = useState({
         pristine: true,
@@ -46,6 +44,14 @@ function Verify(props) {
     const [ isSubmitting, setIsSubmitting ] = useState(false);
     const [ hasStepCompleted, setHasStepCompleted ] = useState(false);
     const [ needsVerification, setNeedsVerification ] = useState(false);
+
+    if (!props.match || !props.match.params || !props.match.params.name) {
+        return (
+            <Redirect
+                to="/signup"
+            />
+        )
+    }
 
     async function fetchAutocomplete() {
         try {

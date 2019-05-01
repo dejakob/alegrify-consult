@@ -996,9 +996,10 @@ ajv@^6.0.1, ajv@^6.1.0, ajv@^6.5.3:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-alegrify-ui@dejakob/alegrify-ui:
-  version "0.0.1"
-  resolved "https://codeload.github.com/dejakob/alegrify-ui/tar.gz/6138a6512fdb2c56509b4a1f1452476d14b21863"
+alegrify-ui@0.0.15:
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/alegrify-ui/-/alegrify-ui-0.0.15.tgz#ab96b03092c3437b10ca19ab9c6660c5d296cff5"
+  integrity sha512-cAq9TtAXOIbYpy0d208NWxK9w/JShRSWpu8X3eSnu8u1P7yIiMWNGwMit+8rU+vEiemQO7bVnu5JXt/Z9ILb5A==
 
 alphanum-sort@^1.0.0:
   version "1.0.2"
@@ -6918,11 +6919,12 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-alegrify-ui@dejakob/react-alegrify-ui:
-  version "0.0.1"
-  resolved "https://codeload.github.com/dejakob/react-alegrify-ui/tar.gz/ca9743b05a598cb8c84fb838eb2743aef2179f86"
+react-alegrify-ui@0.1.13:
+  version "0.1.13"
+  resolved "https://registry.yarnpkg.com/react-alegrify-ui/-/react-alegrify-ui-0.1.13.tgz#cbdd0bb30a929c74aacc72187bf07d351ec60915"
+  integrity sha512-VQ5tuaMwH7iLqnxRWjBJftxl+JJG6cyreGGst9YLsdwMNQm+aY70jZUg7nmuQPQn11eTE0rY3jlcpOxy7ut4HA==
   dependencies:
-    alegrify-ui dejakob/alegrify-ui
+    alegrify-ui "0.0.15"
     moment "^2.22.2"
 
 react-app-polyfill@^0.1.3:
