@@ -4,9 +4,7 @@ import Api from '../helpers/api';
 import store, { ACTIONS, mapStateToProps } from '../services/store';
 import { translate } from '../helpers/language';
 
-const logo = 'https://storage.googleapis.com/alegrify/core/alegrify_first_try.svg';
-
-// Todo: clientside validation
+const logo = 'https://alegrify.com/alegrify_first_try.svg';
 
 class Welcome extends Component {
     constructor() {

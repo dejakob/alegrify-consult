@@ -10,7 +10,7 @@ function SideNavHeaderComponent(props) {
     return (
         <SideNavHeader>
             <img
-                src="https://storage.googleapis.com/alegrify/core/alegrify_first_try.svg"
+                src="https://alegrify.com/alegrify_first_try.svg"
                 alt="logo"
                 height={50}
             />

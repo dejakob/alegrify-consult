@@ -6,7 +6,7 @@ import store, { ACTIONS } from '../../../services/store';
 import LargeSpinner from '../../ui/LargeSpinner';
 import { translate } from '../../../helpers/language';
 
-const Mountains = 'https://storage.googleapis.com/alegrify/core/images/mountains.jpg';
+const Mountains = 'https://alegrify.com/mountains.jpg';
 
 class Connect extends Component {
     constructor() {
