@@ -18,13 +18,16 @@
     "react-scripts": "2.1.1",
     "recharts": "^1.4.1",
     "redux": "^4.0.1",
-    "styled-components": "^4.1.1"
+    "styled-components": "^4.1.1",
+    "snyk": "^1.189.0"
   },
   "scripts": {
     "start": "PORT=3002 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,5 +37,6 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "snyk": true
 }
