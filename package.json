@@ -10,7 +10,7 @@
     "babel-eslint": "9.0.0",
     "i18next": "^15.0.9",
     "immutable": "^4.0.0-rc.12",
-    "moment": "^2.22.2",
+    "moment": "^2.29.2",
     "react": "16.8.6",
     "react-alegrify-ui": "0.1.13",
     "react-dom": "16.8.6",
