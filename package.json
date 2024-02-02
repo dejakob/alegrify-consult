@@ -7,7 +7,7 @@
     "@bugsnag/js": "^6.2.0",
     "@bugsnag/plugin-react": "^6.2.0",
     "alegrify-ui": "0.0.15",
-    "babel-eslint": "9.0.0",
+    "babel-eslint": "10.1.0",
     "i18next": "^15.0.9",
     "immutable": "^4.0.0-rc.12",
     "moment": "^2.22.2",
